@@ -8,7 +8,7 @@ import {
 import { YoutubeSettingsDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/youtube.settings.dto';
 import { useSettings } from '@collosy/frontend/components/launches/helpers/use.values';
 import { Input } from '@collosy/react/form/input';
-import { MediumTags } from '@collosy/frontend/components/new-launch/providers/medium/medium.tags';
+import { YoutubeTags } from '@collosy/frontend/components/new-launch/providers/youtube/youtube.tags';
 import { MediaComponent } from '@collosy/frontend/components/media/media.component';
 import { Select } from '@collosy/react/form/select';
 import { YoutubePreview } from '@collosy/frontend/components/new-launch/providers/youtube/youtube.preview';
@@ -66,7 +66,7 @@ const YoutubeSettings: FC = () => {
           </option>
         ))}
       </Select>
-      <MediumTags label="Tags" {...register('tags')} />
+      <YoutubeTags label="Tags" {...register('tags')} />
       <div className="mt-[20px]">
         <MediaComponent
           type="image"
