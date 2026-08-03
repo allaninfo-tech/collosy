@@ -40,6 +40,14 @@ export const getTemporalModule = (
                 describe: async () => ({ status: { name: 'TERMINATED' } }),
                 terminate: async () => console.log('[Mock Temporal] Workflow terminated (ignored)'),
               }),
+              getRawClient: () => ({
+                connection: {
+                  operatorService: {
+                    listSearchAttributes: async () => ({ customAttributes: {} }),
+                    addSearchAttributes: async () => console.log('[Mock Temporal] addSearchAttributes (ignored)'),
+                  },
+                },
+              }),
             },
             terminateWorkflow: async () => console.log('[Mock Temporal] terminateWorkflow (ignored)'),
           },
