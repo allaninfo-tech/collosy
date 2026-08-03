@@ -29,7 +29,7 @@ EXPOSE 3000
 # Fix Node.js out of memory crashes on Render's 512MB free tier
 ENV NODE_OPTIONS="--max-old-space-size=350"
 
-# Push Prisma database schema to PostgreSQL then start backend
-CMD ["sh", "-c", "npx prisma db push --accept-data-loss --schema ./libraries/nestjs-libraries/src/database/prisma/schema.prisma && node --experimental-require-module ./apps/backend/dist/apps/backend/src/main.js"]
+# Start backend directly so port 3000 binds instantly
+CMD ["node", "--experimental-require-module", "./apps/backend/dist/apps/backend/src/main.js"]
 
 
