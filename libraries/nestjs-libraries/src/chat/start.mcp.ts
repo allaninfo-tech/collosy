@@ -1,9 +1,9 @@
 import { INestApplication } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { MastraService } from '@gitroom/nestjs-libraries/chat/mastra.service';
+import { MastraService } from '@collosy/nestjs-libraries/chat/mastra.service';
 import { MCPServer } from '@mastra/mcp';
-import { OrganizationService } from '@gitroom/nestjs-libraries/database/prisma/organizations/organization.service';
-import { OAuthService } from '@gitroom/nestjs-libraries/database/prisma/oauth/oauth.service';
+import { OrganizationService } from '@collosy/nestjs-libraries/database/prisma/organizations/organization.service';
+import { OAuthService } from '@collosy/nestjs-libraries/database/prisma/oauth/oauth.service';
 import { runWithContext } from './async.storage';
 import { createOAuthMiddleware } from './oauth-middleware';
 const fixAcceptHeader = (req: Request) => {
@@ -32,14 +32,14 @@ export const startMcp = async (app: INestApplication) => {
   };
 
   const mastra = await mastraService.mastra();
-  const agent = mastra.getAgent('postiz');
+  const agent = mastra.getAgent('collosy');
   const tools = await agent.listTools();
 
   const serverConfig = {
-    name: 'Postiz MCP',
+    name: 'Collosy MCP',
     version: '1.0.0',
     tools,
-    agents: { postiz: agent },
+    agents: { collosy: agent },
   };
 
   const server = new MCPServer(serverConfig);

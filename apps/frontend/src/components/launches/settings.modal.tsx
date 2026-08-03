@@ -1,11 +1,11 @@
-import { TopTitle } from '@gitroom/frontend/components/launches/helpers/top.title.component';
+import { TopTitle } from '@collosy/frontend/components/launches/helpers/top.title.component';
 import React, { FC, useCallback, useState } from 'react';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 import { Integration } from '@prisma/client';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { Button } from '@gitroom/react/form/button';
-import { Slider } from '@gitroom/react/form/slider';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { Button } from '@collosy/react/form/button';
+import { Slider } from '@collosy/react/form/slider';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 
 export const Element: FC<{
   setting: any;

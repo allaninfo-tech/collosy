@@ -1,14 +1,14 @@
 'use client';
 import 'reflect-metadata';
-import { useLaunchStore } from '@gitroom/frontend/components/new-launch/store';
+import { useLaunchStore } from '@collosy/frontend/components/new-launch/store';
 import dayjs from 'dayjs';
 import { FC, useEffect } from 'react';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { ManageModal } from '@gitroom/frontend/components/new-launch/manage.modal';
-import { Integrations } from '@gitroom/frontend/components/launches/calendar.context';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { ManageModal } from '@collosy/frontend/components/new-launch/manage.modal';
+import { Integrations } from '@collosy/frontend/components/launches/calendar.context';
 import { useShallow } from 'zustand/react/shallow';
-import { useExistingData } from '@gitroom/frontend/components/launches/helpers/use.existing.data';
-import { newDayjs } from '@gitroom/frontend/components/layout/set.timezone';
+import { useExistingData } from '@collosy/frontend/components/launches/helpers/use.existing.data';
+import { newDayjs } from '@collosy/frontend/components/layout/set.timezone';
 
 export interface AddEditModalProps {
   dummy?: boolean;

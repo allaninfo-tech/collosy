@@ -3,17 +3,17 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
 import dayjs from 'dayjs';
 import {
   SocialAbstract,
   ValidityMedia,
-} from '@gitroom/nestjs-libraries/integrations/social.abstract';
-import { InstagramDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
-import { InstagramProvider } from '@gitroom/nestjs-libraries/integrations/social/instagram.provider';
+} from '@collosy/nestjs-libraries/integrations/social.abstract';
+import { InstagramDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
+import { InstagramProvider } from '@collosy/nestjs-libraries/integrations/social/instagram.provider';
 import { Integration } from '@prisma/client';
-import { Rules } from '@gitroom/nestjs-libraries/chat/rules.description.decorator';
+import { Rules } from '@collosy/nestjs-libraries/chat/rules.description.decorator';
 
 const instagramProvider = new InstagramProvider();
 

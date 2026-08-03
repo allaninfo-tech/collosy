@@ -4,25 +4,25 @@ import {
   ActivityMethod,
   TemporalService,
 } from 'nestjs-temporal-core';
-import { PostsService } from '@gitroom/nestjs-libraries/database/prisma/posts/posts.service';
+import { PostsService } from '@collosy/nestjs-libraries/database/prisma/posts/posts.service';
 import {
   NotificationService,
   NotificationType,
-} from '@gitroom/nestjs-libraries/database/prisma/notifications/notification.service';
+} from '@collosy/nestjs-libraries/database/prisma/notifications/notification.service';
 import { Integration, Post, State } from '@prisma/client';
-import { stripHtmlValidation } from '@gitroom/helpers/utils/strip.html.validation';
-import { IntegrationManager } from '@gitroom/nestjs-libraries/integrations/integration.manager';
-import { AuthTokenDetails } from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { RefreshIntegrationService } from '@gitroom/nestjs-libraries/integrations/refresh.integration.service';
-import { timer } from '@gitroom/helpers/utils/timer';
-import { IntegrationService } from '@gitroom/nestjs-libraries/database/prisma/integrations/integration.service';
-import { WebhooksService } from '@gitroom/nestjs-libraries/database/prisma/webhooks/webhooks.service';
+import { stripHtmlValidation } from '@collosy/helpers/utils/strip.html.validation';
+import { IntegrationManager } from '@collosy/nestjs-libraries/integrations/integration.manager';
+import { AuthTokenDetails } from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { RefreshIntegrationService } from '@collosy/nestjs-libraries/integrations/refresh.integration.service';
+import { timer } from '@collosy/helpers/utils/timer';
+import { IntegrationService } from '@collosy/nestjs-libraries/database/prisma/integrations/integration.service';
+import { WebhooksService } from '@collosy/nestjs-libraries/database/prisma/webhooks/webhooks.service';
 import { TypedSearchAttributes } from '@temporalio/common';
 import {
   organizationId,
   postId as postIdSearchParam,
-} from '@gitroom/nestjs-libraries/temporal/temporal.search.attribute';
-import { SubscriptionService } from '@gitroom/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+} from '@collosy/nestjs-libraries/temporal/temporal.search.attribute';
+import { SubscriptionService } from '@collosy/nestjs-libraries/database/prisma/subscriptions/subscription.service';
 
 // Drops fields the workflow and downstream activities never read — biggest wins are `error` (grows per retry) and `childrenPost` (Prisma side-loads it on every recursive row).
 function slimPost(post: any) {

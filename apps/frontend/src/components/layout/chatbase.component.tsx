@@ -9,9 +9,9 @@ declare global {
 
 import { FC, useCallback, useEffect, useState } from 'react';
 import Script from 'next/script';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { deleteDialog } from '@collosy/react/helpers/delete.dialog';
 import useSWR from 'swr';
 
 export const ChatbaseComponent: FC = () => {

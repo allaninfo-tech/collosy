@@ -8,29 +8,29 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { ioRedis } from '@gitroom/nestjs-libraries/redis/redis.service';
-import { IntegrationManager } from '@gitroom/nestjs-libraries/integrations/integration.manager';
-import { IntegrationService } from '@gitroom/nestjs-libraries/database/prisma/integrations/integration.service';
-import { GetOrgFromRequest } from '@gitroom/nestjs-libraries/user/org.from.request';
+import { ioRedis } from '@collosy/nestjs-libraries/redis/redis.service';
+import { IntegrationManager } from '@collosy/nestjs-libraries/integrations/integration.manager';
+import { IntegrationService } from '@collosy/nestjs-libraries/database/prisma/integrations/integration.service';
+import { GetOrgFromRequest } from '@collosy/nestjs-libraries/user/org.from.request';
 import { Organization, User } from '@prisma/client';
-import { IntegrationFunctionDto } from '@gitroom/nestjs-libraries/dtos/integrations/integration.function.dto';
-import { CheckPolicies } from '@gitroom/backend/services/auth/permissions/permissions.ability';
-import { pricing } from '@gitroom/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { IntegrationFunctionDto } from '@collosy/nestjs-libraries/dtos/integrations/integration.function.dto';
+import { CheckPolicies } from '@collosy/backend/services/auth/permissions/permissions.ability';
+import { pricing } from '@collosy/nestjs-libraries/database/prisma/subscriptions/pricing';
 import { ApiTags } from '@nestjs/swagger';
-import { GetUserFromRequest } from '@gitroom/nestjs-libraries/user/user.from.request';
-import { PostsService } from '@gitroom/nestjs-libraries/database/prisma/posts/posts.service';
-import { IntegrationTimeDto } from '@gitroom/nestjs-libraries/dtos/integrations/integration.time.dto';
-import { PlugDto } from '@gitroom/nestjs-libraries/dtos/plugs/plug.dto';
-import { RefreshToken } from '@gitroom/nestjs-libraries/integrations/social.abstract';
+import { GetUserFromRequest } from '@collosy/nestjs-libraries/user/user.from.request';
+import { PostsService } from '@collosy/nestjs-libraries/database/prisma/posts/posts.service';
+import { IntegrationTimeDto } from '@collosy/nestjs-libraries/dtos/integrations/integration.time.dto';
+import { PlugDto } from '@collosy/nestjs-libraries/dtos/plugs/plug.dto';
+import { RefreshToken } from '@collosy/nestjs-libraries/integrations/social.abstract';
 
-import { timer } from '@gitroom/helpers/utils/timer';
-import { TelegramProvider } from '@gitroom/nestjs-libraries/integrations/social/telegram.provider';
+import { timer } from '@collosy/helpers/utils/timer';
+import { TelegramProvider } from '@collosy/nestjs-libraries/integrations/social/telegram.provider';
 import {
   AuthorizationActions,
   Sections,
-} from '@gitroom/backend/services/auth/permissions/permission.exception.class';
+} from '@collosy/backend/services/auth/permissions/permission.exception.class';
 import { uniqBy } from 'lodash';
-import { RefreshIntegrationService } from '@gitroom/nestjs-libraries/integrations/refresh.integration.service';
+import { RefreshIntegrationService } from '@collosy/nestjs-libraries/integrations/refresh.integration.service';
 
 @ApiTags('Integrations')
 @Controller('/integrations')

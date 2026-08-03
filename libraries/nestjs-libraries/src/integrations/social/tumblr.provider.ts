@@ -3,20 +3,20 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
 import {
   SocialAbstract,
   ValidityMedia,
-} from '@gitroom/nestjs-libraries/integrations/social.abstract';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { TumblrDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/tumblr.dto';
+} from '@collosy/nestjs-libraries/integrations/social.abstract';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { TumblrDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/tumblr.dto';
 import { Integration } from '@prisma/client';
 import axios from 'axios';
 import { lookup } from 'mime-types';
-import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+import { hasExtension } from '@collosy/helpers/utils/has.extension';
 
 const TUMBLR_API_URL = 'https://api.tumblr.com/v2';
-const TUMBLR_USER_AGENT = 'Postiz/1.0 (+https://postiz.com)';
+const TUMBLR_USER_AGENT = 'Collosy/1.0 (+https://collosy.com)';
 const TUMBLR_TEXT_BLOCK_LIMIT = 4096;
 const TUMBLR_DEFAULT_VIDEO_WIDTH = 540;
 const TUMBLR_DEFAULT_VIDEO_HEIGHT = 405;

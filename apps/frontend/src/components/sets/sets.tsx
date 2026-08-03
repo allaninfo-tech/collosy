@@ -2,18 +2,18 @@
 import 'reflect-metadata';
 
 import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { useUser } from '@gitroom/frontend/components/layout/user.context';
-import { Button } from '@gitroom/react/form/button';
-import { Input } from '@gitroom/react/form/input';
-import { useToaster } from '@gitroom/react/toaster/toaster';
+import { useUser } from '@collosy/frontend/components/layout/user.context';
+import { Button } from '@collosy/react/form/button';
+import { Input } from '@collosy/react/form/input';
+import { useToaster } from '@collosy/react/toaster/toaster';
 import clsx from 'clsx';
-import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { AddEditModal } from '@gitroom/frontend/components/new-launch/add.edit.modal';
-import { newDayjs } from '@gitroom/frontend/components/layout/set.timezone';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { deleteDialog } from '@collosy/react/helpers/delete.dialog';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { AddEditModal } from '@collosy/frontend/components/new-launch/add.edit.modal';
+import { newDayjs } from '@collosy/frontend/components/layout/set.timezone';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 
 const SaveSetModal: FC<{
   postData: any;

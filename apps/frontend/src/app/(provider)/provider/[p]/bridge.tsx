@@ -5,7 +5,7 @@ import {
   type ProviderPreviewHandle,
   type ProviderPreviewProps,
   type ProviderPreviewValidation,
-} from '@gitroom/frontend/components/provider-preview/preview.provider.component';
+} from '@collosy/frontend/components/provider-preview/preview.provider.component';
 
 type InitPayload = {
   value?: Record<string, unknown>;

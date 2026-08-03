@@ -2,35 +2,35 @@
 
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { useVariables } from '@collosy/react/helpers/variable.context';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
-import { OrganizationSelector } from '@gitroom/frontend/components/layout/organization.selector';
-import { LanguageComponent } from '@gitroom/frontend/components/layout/language.component';
-import { AttachToFeedbackIcon } from '@gitroom/frontend/components/new-layout/sentry.feedback.component';
-import NotificationComponent from '@gitroom/frontend/components/notifications/notification.component';
+import { OrganizationSelector } from '@collosy/frontend/components/layout/organization.selector';
+import { LanguageComponent } from '@collosy/frontend/components/layout/language.component';
+import { AttachToFeedbackIcon } from '@collosy/frontend/components/new-layout/sentry.feedback.component';
+import NotificationComponent from '@collosy/frontend/components/notifications/notification.component';
 import dynamic from 'next/dynamic';
-import { LogoTextComponent } from '@gitroom/frontend/components/ui/logo-text.component';
-import { pricing } from '@gitroom/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { LogoTextComponent } from '@collosy/frontend/components/ui/logo-text.component';
+import { pricing } from '@collosy/nestjs-libraries/database/prisma/subscriptions/pricing';
 import { capitalize } from 'lodash';
 import clsx from 'clsx';
-import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
-import { CheckIconComponent } from '@gitroom/frontend/components/ui/check.icon.component';
+import { LoadingComponent } from '@collosy/frontend/components/layout/loading';
+import { CheckIconComponent } from '@collosy/frontend/components/ui/check.icon.component';
 import {
   FAQComponent,
   FAQSection,
-} from '@gitroom/frontend/components/billing/faq.component';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { useUser } from '@gitroom/frontend/components/layout/user.context';
-import { useDubClickId } from '@gitroom/frontend/components/layout/dubAnalytics';
-import SafeImage from '@gitroom/react/helpers/safe.image';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+} from '@collosy/frontend/components/billing/faq.component';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { useUser } from '@collosy/frontend/components/layout/user.context';
+import { useDubClickId } from '@collosy/frontend/components/layout/dubAnalytics';
+import SafeImage from '@collosy/react/helpers/safe.image';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 import useCookie from 'react-use-cookie';
-import { LogoutComponent } from '@gitroom/frontend/components/layout/logout.component';
-import { DeveloperIconComponent } from '@gitroom/frontend/components/developer/developer.icon.component';
+import { LogoutComponent } from '@collosy/frontend/components/layout/logout.component';
+import { DeveloperIconComponent } from '@collosy/frontend/components/developer/developer.icon.component';
 
 const ModeComponent = dynamic(
-  () => import('@gitroom/frontend/components/layout/mode.component'),
+  () => import('@collosy/frontend/components/layout/mode.component'),
   {
     ssr: false,
   }
@@ -38,7 +38,7 @@ const ModeComponent = dynamic(
 
 const EmbeddedBilling = dynamic(
   () =>
-    import('@gitroom/frontend/components/billing/embedded.billing').then(
+    import('@collosy/frontend/components/billing/embedded.billing').then(
       (mod) => mod.EmbeddedBilling
     ),
   {
@@ -81,12 +81,12 @@ export const FirstBillingComponent = () => {
 
   const showYouTube = () => {
     modals.openModal({
-      title: 'Grow Fast With Postiz (Play the video)',
+      title: 'Grow Fast With Collosy (Play the video)',
       children: (
         <iframe
           className="h-full aspect-video min-w-[800px]"
           src="https://www.youtube.com/embed/BdsCVvEYgHU?si=vvhaZJ8I5oXXvVJS?autoplay=1"
-          title="Postiz Tutorial"
+          title="Collosy Tutorial"
           allow="autoplay"
           allowFullScreen
         />
@@ -121,8 +121,8 @@ export const FirstBillingComponent = () => {
           </span>{' '}
           {t('billing_who_use', 'who use')}{' '}
           {t(
-            'billing_postiz_grow_social',
-            'Postiz To Grow Their Social Presence'
+            'billing_collosy_grow_social',
+            'Collosy To Grow Their Social Presence'
           )}
         </div>
 
@@ -137,7 +137,7 @@ export const FirstBillingComponent = () => {
                 alt="YouTube"
               />
             </div>
-            <div>See the power of Postiz (click here)</div>
+            <div>See the power of Collosy (click here)</div>
           </div>
         </div>
 

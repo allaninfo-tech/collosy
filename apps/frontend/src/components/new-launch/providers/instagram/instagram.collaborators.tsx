@@ -3,17 +3,17 @@
 import {
   PostComment,
   withProvider,
-} from '@gitroom/frontend/components/new-launch/providers/high.order.provider';
+} from '@collosy/frontend/components/new-launch/providers/high.order.provider';
 import { FC } from 'react';
-import { Select } from '@gitroom/react/form/select';
-import { Checkbox } from '@gitroom/react/form/checkbox';
-import { useSettings } from '@gitroom/frontend/components/launches/helpers/use.values';
-import { InstagramDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
-import { InstagramCollaboratorsTags } from '@gitroom/frontend/components/new-launch/providers/instagram/instagram.tags';
-import { InstagramAudioSelector } from '@gitroom/frontend/components/new-launch/providers/instagram/instagram.audio';
-import { useIntegration } from '@gitroom/frontend/components/launches/helpers/use.integration';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { InstagramPreview } from '@gitroom/frontend/components/new-launch/providers/instagram/instagram.preview';
+import { Select } from '@collosy/react/form/select';
+import { Checkbox } from '@collosy/react/form/checkbox';
+import { useSettings } from '@collosy/frontend/components/launches/helpers/use.values';
+import { InstagramDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
+import { InstagramCollaboratorsTags } from '@collosy/frontend/components/new-launch/providers/instagram/instagram.tags';
+import { InstagramAudioSelector } from '@collosy/frontend/components/new-launch/providers/instagram/instagram.audio';
+import { useIntegration } from '@collosy/frontend/components/launches/helpers/use.integration';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { InstagramPreview } from '@collosy/frontend/components/new-launch/providers/instagram/instagram.preview';
 const postType = [
   {
     value: 'post',

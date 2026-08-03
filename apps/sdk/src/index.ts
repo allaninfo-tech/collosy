@@ -1,5 +1,5 @@
-import { CreatePostDto } from '@gitroom/nestjs-libraries/dtos/posts/create.post.dto';
-import { GetPostsDto } from '@gitroom/nestjs-libraries/dtos/posts/get.posts.dto';
+import { CreatePostDto } from '@collosy/nestjs-libraries/dtos/posts/create.post.dto';
+import { GetPostsDto } from '@collosy/nestjs-libraries/dtos/posts/get.posts.dto';
 import fetch, { FormData } from 'node-fetch';
 
 function toQueryString(obj: Record<string, any>): string {
@@ -12,10 +12,10 @@ function toQueryString(obj: Record<string, any>): string {
   return params.toString();
 }
 
-export default class Postiz {
+export default class Collosy {
   constructor(
     private _apiKey: string,
-    private _path = 'https://api.postiz.com'
+    private _path = 'https://api.collosy.com'
   ) {}
 
   async post(posts: CreatePostDto) {

@@ -1,8 +1,8 @@
-import { timer } from '@gitroom/helpers/utils/timer';
+import { timer } from '@collosy/helpers/utils/timer';
 import { Integration } from '@prisma/client';
 import { ApplicationFailure } from '@temporalio/activity';
-import { readOrFetch } from '@gitroom/helpers/utils/read.or.fetch';
-import { getSsrfSafeDispatcher } from '@gitroom/nestjs-libraries/dtos/webhooks/ssrf.safe.dispatcher';
+import { readOrFetch } from '@collosy/helpers/utils/read.or.fetch';
+import { getSsrfSafeDispatcher } from '@collosy/nestjs-libraries/dtos/webhooks/ssrf.safe.dispatcher';
 import sharp from 'sharp';
 
 export type ValidityMedia = {

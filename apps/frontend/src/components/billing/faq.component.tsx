@@ -2,9 +2,9 @@
 
 import { FC, useCallback, useState } from 'react';
 import clsx from 'clsx';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { useUser } from '@gitroom/frontend/components/layout/user.context';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { useUser } from '@collosy/frontend/components/layout/user.context';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 const useFaqList = () => {
   const { isGeneral } = useVariables();
   const user = useUser();
@@ -14,36 +14,36 @@ const useFaqList = () => {
       ? [
           {
             title: t(
-              'faq_am_i_going_to_be_charged_by_postiz',
-              'Am I going to be charged by Postiz?'
+              'faq_am_i_going_to_be_charged_by_collosy',
+              'Am I going to be charged by Collosy?'
             ),
             description: t(
-              'faq_to_confirm_credit_card_information_postiz_will_hold',
-              'To confirm credit card information Postiz will hold $2 and release it immediately, you can cancel your subscription anytime from settings without talking to a person'
+              'faq_to_confirm_credit_card_information_collosy_will_hold',
+              'To confirm credit card information Collosy will hold $2 and release it immediately, you can cancel your subscription anytime from settings without talking to a person'
             ),
           },
         ]
       : []),
     {
       title: t(
-        'faq_can_i_trust_postiz_gitroom',
-        `Can I trust ${isGeneral ? 'Postiz' : 'Gitroom'}?`
+        'faq_can_i_trust_collosy_collosy',
+        `Can I trust ${isGeneral ? 'Collosy' : 'Collosy'}?`
       ),
       description: t(
-        'faq_postiz_gitroom_is_proudly_open_source',
+        'faq_collosy_collosy_is_proudly_open_source',
         `${
-          isGeneral ? 'Postiz' : 'Gitroom'
+          isGeneral ? 'Collosy' : 'Collosy'
         } is proudly open-source! We believe in an ethical and transparent culture, meaning that ${
-          isGeneral ? 'Postiz' : 'Gitroom'
-        } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/gitroomhq/postiz-app" target="_blank" style="text-decoration: underline;">click here</a>.`
+          isGeneral ? 'Collosy' : 'Collosy'
+        } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/collosyhq/collosy-app" target="_blank" style="text-decoration: underline;">click here</a>.`
       ),
     },
     {
       title: t('faq_what_are_channels', 'What are channels?'),
       description: t(
-        'faq_postiz_gitroom_allows_you_to_schedule_posts',
+        'faq_collosy_collosy_allows_you_to_schedule_posts',
         `${
-          isGeneral ? 'Postiz' : 'Gitroom'
+          isGeneral ? 'Collosy' : 'Collosy'
         } allows you to schedule your posts between different channels.
 A channel is a publishing platform where you can schedule your posts.
 For example, you can schedule your posts on X, Facebook, Instagram, TikTok, YouTube, Reddit, Linkedin, Dribbble, Threads and Pinterest.`

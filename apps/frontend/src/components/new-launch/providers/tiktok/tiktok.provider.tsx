@@ -7,16 +7,16 @@ import {
 import {
   PostComment,
   withProvider,
-} from '@gitroom/frontend/components/new-launch/providers/high.order.provider';
-import { TikTokDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
-import { useSettings } from '@gitroom/frontend/components/launches/helpers/use.values';
-import { Select } from '@gitroom/react/form/select';
-import { Checkbox } from '@gitroom/react/form/checkbox';
+} from '@collosy/frontend/components/new-launch/providers/high.order.provider';
+import { TikTokDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
+import { useSettings } from '@collosy/frontend/components/launches/helpers/use.values';
+import { Select } from '@collosy/react/form/select';
+import { Checkbox } from '@collosy/react/form/checkbox';
 import clsx from 'clsx';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { useIntegration } from '@gitroom/frontend/components/launches/helpers/use.integration';
-import { Input } from '@gitroom/react/form/input';
-import { TiktokPreview } from '@gitroom/frontend/components/new-launch/providers/tiktok/tiktok.preview';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { useIntegration } from '@collosy/frontend/components/launches/helpers/use.integration';
+import { Input } from '@collosy/react/form/input';
+import { TiktokPreview } from '@collosy/frontend/components/new-launch/providers/tiktok/tiktok.preview';
 
 const TikTokSettings: FC<{
   values?: any;
@@ -54,7 +54,7 @@ const TikTokSettings: FC<{
     }
     return t(
       'tiktok_restriction_upload_video',
-      'TikTok restriction: For upload-only video, TikTok does not accept a title or message. The content will default to "#Postiz" and you can edit it inside the TikTok app before publishing.'
+      'TikTok restriction: For upload-only video, TikTok does not accept a title or message. The content will default to "#Collosy" and you can edit it inside the TikTok app before publishing.'
     );
   }, [hasMedia, isUploadMode, isVideo, t]);
 

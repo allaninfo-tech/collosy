@@ -7,22 +7,22 @@ import {
   Post,
   UseFilters,
 } from '@nestjs/common';
-import { ioRedis } from '@gitroom/nestjs-libraries/redis/redis.service';
-import { ConnectIntegrationDto } from '@gitroom/nestjs-libraries/dtos/integrations/connect.integration.dto';
-import { IntegrationManager } from '@gitroom/nestjs-libraries/integrations/integration.manager';
-import { IntegrationService } from '@gitroom/nestjs-libraries/database/prisma/integrations/integration.service';
-import { CheckPolicies } from '@gitroom/backend/services/auth/permissions/permissions.ability';
+import { ioRedis } from '@collosy/nestjs-libraries/redis/redis.service';
+import { ConnectIntegrationDto } from '@collosy/nestjs-libraries/dtos/integrations/connect.integration.dto';
+import { IntegrationManager } from '@collosy/nestjs-libraries/integrations/integration.manager';
+import { IntegrationService } from '@collosy/nestjs-libraries/database/prisma/integrations/integration.service';
+import { CheckPolicies } from '@collosy/backend/services/auth/permissions/permissions.ability';
 import { ApiTags } from '@nestjs/swagger';
-import { NotEnoughScopesFilter } from '@gitroom/nestjs-libraries/integrations/integration.missing.scopes';
-import { AuthService } from '@gitroom/helpers/auth/auth.service';
-import { AuthTokenDetails } from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { NotEnoughScopes } from '@gitroom/nestjs-libraries/integrations/social.abstract';
+import { NotEnoughScopesFilter } from '@collosy/nestjs-libraries/integrations/integration.missing.scopes';
+import { AuthService } from '@collosy/helpers/auth/auth.service';
+import { AuthTokenDetails } from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { NotEnoughScopes } from '@collosy/nestjs-libraries/integrations/social.abstract';
 import {
   AuthorizationActions,
   Sections,
-} from '@gitroom/backend/services/auth/permissions/permission.exception.class';
-import { RefreshIntegrationService } from '@gitroom/nestjs-libraries/integrations/refresh.integration.service';
-import { OrganizationService } from '@gitroom/nestjs-libraries/database/prisma/organizations/organization.service';
+} from '@collosy/backend/services/auth/permissions/permission.exception.class';
+import { RefreshIntegrationService } from '@collosy/nestjs-libraries/integrations/refresh.integration.service';
+import { OrganizationService } from '@collosy/nestjs-libraries/database/prisma/organizations/organization.service';
 
 @ApiTags('Integrations')
 @Controller('/integrations')

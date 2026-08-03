@@ -1,24 +1,24 @@
 'use client';
 
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import Link from 'next/link';
-import { Button } from '@gitroom/react/form/button';
-import { Input } from '@gitroom/react/form/input';
+import { Button } from '@collosy/react/form/button';
+import { Input } from '@collosy/react/form/input';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { CreateOrgUserDto } from '@gitroom/nestjs-libraries/dtos/auth/create.org.user.dto';
-import { GithubProvider } from '@gitroom/frontend/components/auth/providers/github.provider';
+import { CreateOrgUserDto } from '@collosy/nestjs-libraries/dtos/auth/create.org.user.dto';
+import { GithubProvider } from '@collosy/frontend/components/auth/providers/github.provider';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
+import { LoadingComponent } from '@collosy/frontend/components/layout/loading';
 import clsx from 'clsx';
-import { GoogleProvider } from '@gitroom/frontend/components/auth/providers/google.provider';
-import { OauthProvider } from '@gitroom/frontend/components/auth/providers/oauth.provider';
-import { useFireEvents } from '@gitroom/helpers/utils/use.fire.events';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { useTrack } from '@gitroom/react/helpers/use.track';
-import { TrackEnum } from '@gitroom/nestjs-libraries/user/track.enum';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { GoogleProvider } from '@collosy/frontend/components/auth/providers/google.provider';
+import { OauthProvider } from '@collosy/frontend/components/auth/providers/oauth.provider';
+import { useFireEvents } from '@collosy/helpers/utils/use.fire.events';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { useTrack } from '@collosy/react/helpers/use.track';
+import { TrackEnum } from '@collosy/nestjs-libraries/user/track.enum';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 import useCookie from 'react-use-cookie';
 type Inputs = {
   email: string;
@@ -207,7 +207,7 @@ export function RegisterAfter({
                 )}
                 &nbsp;
                 <a
-                  href={`https://postiz.com/terms`}
+                  href={`https://collosy.com/terms`}
                   className="underline hover:font-bold"
                   rel="nofollow"
                 >
@@ -216,7 +216,7 @@ export function RegisterAfter({
                 &nbsp;
                 {t('and', 'and')}&nbsp;
                 <a
-                  href={`https://postiz.com/privacy`}
+                  href={`https://collosy.com/privacy`}
                   rel="nofollow"
                   className="underline hover:font-bold"
                 >

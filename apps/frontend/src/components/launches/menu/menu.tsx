@@ -10,26 +10,26 @@ import React, {
   useState,
 } from 'react';
 import { useClickOutside } from '@mantine/hooks';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
-import { useToaster } from '@gitroom/react/toaster/toaster';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
-import { TimeTable } from '@gitroom/frontend/components/launches/time.table';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { deleteDialog } from '@collosy/react/helpers/delete.dialog';
+import { useToaster } from '@collosy/react/toaster/toaster';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
+import { TimeTable } from '@collosy/frontend/components/launches/time.table';
 import {
   Integrations,
   useCalendar,
-} from '@gitroom/frontend/components/launches/calendar.context';
-import { BotPicture } from '@gitroom/frontend/components/launches/bot.picture';
-import { CustomerModal } from '@gitroom/frontend/components/launches/customer.modal';
+} from '@collosy/frontend/components/launches/calendar.context';
+import { BotPicture } from '@collosy/frontend/components/launches/bot.picture';
+import { CustomerModal } from '@collosy/frontend/components/launches/customer.modal';
 import { Integration } from '@prisma/client';
-import { SettingsModal } from '@gitroom/frontend/components/launches/settings.modal';
-import { CustomVariables } from '@gitroom/frontend/components/launches/add.provider.component';
+import { SettingsModal } from '@collosy/frontend/components/launches/settings.modal';
+import { CustomVariables } from '@collosy/frontend/components/launches/add.provider.component';
 import { useRouter } from 'next/navigation';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { AddEditModal } from '@gitroom/frontend/components/new-launch/add.edit.modal';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { AddEditModal } from '@collosy/frontend/components/new-launch/add.edit.modal';
 import dayjs from 'dayjs';
-import { ModalWrapperComponent } from '@gitroom/frontend/components/new-launch/modal.wrapper.component';
+import { ModalWrapperComponent } from '@collosy/frontend/components/new-launch/modal.wrapper.component';
 import copy from 'copy-to-clipboard';
 
 export const Menu: FC<{

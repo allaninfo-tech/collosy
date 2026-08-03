@@ -1,18 +1,18 @@
-import { AgentToolInterface } from '@gitroom/nestjs-libraries/chat/agent.tool.interface';
+import { AgentToolInterface } from '@collosy/nestjs-libraries/chat/agent.tool.interface';
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 import { Injectable } from '@nestjs/common';
 import {
   IntegrationManager,
   socialIntegrationList,
-} from '@gitroom/nestjs-libraries/integrations/integration.manager';
-import { IntegrationService } from '@gitroom/nestjs-libraries/database/prisma/integrations/integration.service';
-import { RefreshToken } from '@gitroom/nestjs-libraries/integrations/social.abstract';
-import { timer } from '@gitroom/helpers/utils/timer';
-import { MediaService } from '@gitroom/nestjs-libraries/database/prisma/media/media.service';
-import { OrganizationService } from '@gitroom/nestjs-libraries/database/prisma/organizations/organization.service';
-import { VideoManager } from '@gitroom/nestjs-libraries/videos/video.manager';
-import { checkAuth } from '@gitroom/nestjs-libraries/chat/auth.context';
+} from '@collosy/nestjs-libraries/integrations/integration.manager';
+import { IntegrationService } from '@collosy/nestjs-libraries/database/prisma/integrations/integration.service';
+import { RefreshToken } from '@collosy/nestjs-libraries/integrations/social.abstract';
+import { timer } from '@collosy/helpers/utils/timer';
+import { MediaService } from '@collosy/nestjs-libraries/database/prisma/media/media.service';
+import { OrganizationService } from '@collosy/nestjs-libraries/database/prisma/organizations/organization.service';
+import { VideoManager } from '@collosy/nestjs-libraries/videos/video.manager';
+import { checkAuth } from '@collosy/nestjs-libraries/chat/auth.context';
 
 @Injectable()
 export class GenerateVideoTool implements AgentToolInterface {

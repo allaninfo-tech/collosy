@@ -2,16 +2,16 @@ import { FC, useEffect, useState } from 'react';
 import {
   Integrations,
   useCalendar,
-} from '@gitroom/frontend/components/launches/calendar.context';
-import { PickPlatforms } from '@gitroom/frontend/components/launches/helpers/pick.platform.component';
-import { useIntegration } from '@gitroom/frontend/components/launches/helpers/use.integration';
-import { Select } from '@gitroom/react/form/select';
-import { Slider } from '@gitroom/react/form/slider';
-import { Input } from '@gitroom/react/form/input';
-import { Textarea } from '@gitroom/react/form/textarea';
-import { useSettings } from '@gitroom/frontend/components/launches/helpers/use.values';
+} from '@collosy/frontend/components/launches/calendar.context';
+import { PickPlatforms } from '@collosy/frontend/components/launches/helpers/pick.platform.component';
+import { useIntegration } from '@collosy/frontend/components/launches/helpers/use.integration';
+import { Select } from '@collosy/react/form/select';
+import { Slider } from '@collosy/react/form/slider';
+import { Input } from '@collosy/react/form/input';
+import { Textarea } from '@collosy/react/form/textarea';
+import { useSettings } from '@collosy/frontend/components/launches/helpers/use.values';
 import clsx from 'clsx';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 const delayOptions = [
   {
     name: 'Immediately',

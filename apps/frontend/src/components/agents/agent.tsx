@@ -12,16 +12,16 @@ import clsx from 'clsx';
 import useCookie from 'react-use-cookie';
 import useSWR from 'swr';
 import { orderBy } from 'lodash';
-import { SVGLine } from '@gitroom/frontend/components/launches/launches.component';
-import ImageWithFallback from '@gitroom/react/helpers/image.with.fallback';
-import SafeImage from '@gitroom/react/helpers/safe.image';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { useWaitForClass } from '@gitroom/helpers/utils/use.wait.for.class';
-import { MultiMediaComponent } from '@gitroom/frontend/components/media/media.component';
+import { SVGLine } from '@collosy/frontend/components/launches/launches.component';
+import ImageWithFallback from '@collosy/react/helpers/image.with.fallback';
+import SafeImage from '@collosy/react/helpers/safe.image';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { useWaitForClass } from '@collosy/helpers/utils/use.wait.for.class';
+import { MultiMediaComponent } from '@collosy/frontend/components/media/media.component';
 import { Integration } from '@prisma/client';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 
 export const MediaPortal: FC<{
   media: { path: string; id: string }[];

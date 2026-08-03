@@ -1,11 +1,11 @@
 'use client';
 
 import { FC, useCallback, useMemo, useState } from 'react';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { useToaster } from '@gitroom/react/toaster/toaster';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { Button } from '@gitroom/react/form/button';
-import { useIntegrationList } from '@gitroom/frontend/components/launches/helpers/use.integration.list';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { useToaster } from '@collosy/react/toaster/toaster';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { Button } from '@collosy/react/form/button';
+import { useIntegrationList } from '@collosy/frontend/components/launches/helpers/use.integration.list';
 import { useSWRConfig } from 'swr';
 import clsx from 'clsx';
 

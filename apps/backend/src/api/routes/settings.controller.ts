@@ -7,16 +7,16 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
-import { GetOrgFromRequest } from '@gitroom/nestjs-libraries/user/org.from.request';
-import { GetUserFromRequest } from '@gitroom/nestjs-libraries/user/user.from.request';
+import { GetOrgFromRequest } from '@collosy/nestjs-libraries/user/org.from.request';
+import { GetUserFromRequest } from '@collosy/nestjs-libraries/user/user.from.request';
 import { Organization, User } from '@prisma/client';
-import { CheckPolicies } from '@gitroom/backend/services/auth/permissions/permissions.ability';
-import { OrganizationService } from '@gitroom/nestjs-libraries/database/prisma/organizations/organization.service';
-import { AddTeamMemberDto } from '@gitroom/nestjs-libraries/dtos/settings/add.team.member.dto';
-import { AdminAddTeamMemberDto } from '@gitroom/nestjs-libraries/dtos/settings/admin.add.team.member.dto';
-import { ShortlinkPreferenceDto } from '@gitroom/nestjs-libraries/dtos/settings/shortlink-preference.dto';
+import { CheckPolicies } from '@collosy/backend/services/auth/permissions/permissions.ability';
+import { OrganizationService } from '@collosy/nestjs-libraries/database/prisma/organizations/organization.service';
+import { AddTeamMemberDto } from '@collosy/nestjs-libraries/dtos/settings/add.team.member.dto';
+import { AdminAddTeamMemberDto } from '@collosy/nestjs-libraries/dtos/settings/admin.add.team.member.dto';
+import { ShortlinkPreferenceDto } from '@collosy/nestjs-libraries/dtos/settings/shortlink-preference.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthorizationActions, Sections } from '@gitroom/backend/services/auth/permissions/permission.exception.class';
+import { AuthorizationActions, Sections } from '@collosy/backend/services/auth/permissions/permission.exception.class';
 
 @ApiTags('Settings')
 @Controller('/settings')

@@ -4,21 +4,21 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { PinterestSettingsDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/pinterest.dto';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { PinterestSettingsDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/pinterest.dto';
 import axios from 'axios';
 import FormData from 'form-data';
-import { timer } from '@gitroom/helpers/utils/timer';
+import { timer } from '@collosy/helpers/utils/timer';
 import {
   BadBody,
   SocialAbstract,
   ValidityMedia,
-} from '@gitroom/nestjs-libraries/integrations/social.abstract';
+} from '@collosy/nestjs-libraries/integrations/social.abstract';
 import dayjs from 'dayjs';
-import { Tool } from '@gitroom/nestjs-libraries/integrations/tool.decorator';
-import { Rules } from '@gitroom/nestjs-libraries/chat/rules.description.decorator';
-import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+import { Tool } from '@collosy/nestjs-libraries/integrations/tool.decorator';
+import { Rules } from '@collosy/nestjs-libraries/chat/rules.description.decorator';
+import { hasExtension } from '@collosy/helpers/utils/has.extension';
 
 @Rules(
   'Pinterest requires at least one media, if posting a video, you must have two attachment, one for video, one for the cover picture, When posting a video, there can be only one, if posting images, there can be maximum 5'

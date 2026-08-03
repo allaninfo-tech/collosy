@@ -1,13 +1,13 @@
 'use client';
 
 import { FC, useCallback, useState } from 'react';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { useToaster } from '@gitroom/react/toaster/toaster';
-import { useDecisionModal, useModals } from '@gitroom/frontend/components/layout/new-modal';
-import { MediaBox } from '@gitroom/frontend/components/media/media.component';
+import { useToaster } from '@collosy/react/toaster/toaster';
+import { useDecisionModal, useModals } from '@collosy/frontend/components/layout/new-modal';
+import { MediaBox } from '@collosy/frontend/components/media/media.component';
 import copy from 'copy-to-clipboard';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 
 const useOAuthApp = () => {
   const fetch = useFetch();
@@ -220,7 +220,7 @@ export const DeveloperComponent: FC = () => {
         <div className="text-[14px] text-textColor leading-[1.7]">
           {t(
             'oauth_app_note_line1',
-            'Create an OAuth App to let other Postiz users authorize your product to post on their behalf.'
+            'Create an OAuth App to let other Collosy users authorize your product to post on their behalf.'
           )}
           <br />
           {t(
@@ -237,14 +237,14 @@ export const DeveloperComponent: FC = () => {
               <div className="text-[13px] text-customColor18 mt-[2px]">
                 {t(
                   'create_an_oauth_application',
-                  'Create an OAuth application to allow third-party integrations with Postiz on behalf of your users.'
+                  'Create an OAuth application to allow third-party integrations with Collosy on behalf of your users.'
                 )}
               </div>
             </div>
             <div className="flex gap-[6px] shrink-0 pt-[2px]">
               <a
                 className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
-                href="https://docs.postiz.com/public-api/oauth"
+                href="https://docs.collosy.com/public-api/oauth"
                 target="_blank"
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
@@ -273,7 +273,7 @@ export const DeveloperComponent: FC = () => {
         <div className="text-[14px] text-textColor leading-[1.7]">
           {t(
             'oauth_app_note_line1',
-            'Create an OAuth App to let other Postiz users authorize your product to post on their behalf.'
+            'Create an OAuth App to let other Collosy users authorize your product to post on their behalf.'
           )}
           <br />
           {t(
@@ -382,7 +382,7 @@ export const DeveloperComponent: FC = () => {
       <div className="text-[14px] text-textColor leading-[1.7]">
         {t(
           'oauth_app_note_line1',
-          'Create an OAuth App to let other Postiz users authorize your product to post on their behalf.'
+          'Create an OAuth App to let other Collosy users authorize your product to post on their behalf.'
         )}
         <br />
         {t(
@@ -407,7 +407,7 @@ export const DeveloperComponent: FC = () => {
           <div className="flex gap-[6px] shrink-0 pt-[2px]">
             <a
               className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
-              href="https://docs.postiz.com/public-api/oauth"
+              href="https://docs.collosy.com/public-api/oauth"
               target="_blank"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>

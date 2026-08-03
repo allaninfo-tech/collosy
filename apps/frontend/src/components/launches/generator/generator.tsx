@@ -1,27 +1,27 @@
 'use client';
 
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { useUser } from '@gitroom/frontend/components/layout/user.context';
+import { useUser } from '@collosy/frontend/components/layout/user.context';
 import { useRouter } from 'next/navigation';
-import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { deleteDialog } from '@collosy/react/helpers/delete.dialog';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { GeneratorDto } from '@gitroom/nestjs-libraries/dtos/generator/generator.dto';
-import { Button } from '@gitroom/react/form/button';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { Textarea } from '@gitroom/react/form/textarea';
-import { Checkbox } from '@gitroom/react/form/checkbox';
+import { GeneratorDto } from '@collosy/nestjs-libraries/dtos/generator/generator.dto';
+import { Button } from '@collosy/react/form/button';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { Textarea } from '@collosy/react/form/textarea';
+import { Checkbox } from '@collosy/react/form/checkbox';
 import clsx from 'clsx';
 import {
   CalendarWeekProvider,
   useCalendar,
-} from '@gitroom/frontend/components/launches/calendar.context';
+} from '@collosy/frontend/components/launches/calendar.context';
 import dayjs from 'dayjs';
-import { Select } from '@gitroom/react/form/select';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { AddEditModal } from '@gitroom/frontend/components/new-launch/add.edit.modal';
-import { useToaster } from '@gitroom/react/toaster/toaster';
+import { Select } from '@collosy/react/form/select';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { AddEditModal } from '@collosy/frontend/components/new-launch/add.edit.modal';
+import { useToaster } from '@collosy/react/toaster/toaster';
 
 const FirstStep: FC = (props) => {
   const { integrations, reloadCalendarView } = useCalendar();

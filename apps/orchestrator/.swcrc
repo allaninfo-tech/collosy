@@ -7,17 +7,17 @@
       "dynamicImport": true
     },
     "target": "es2020",
-    "baseUrl": "/Users/nevodavid/Projects/gitroom",
+    "baseUrl": "/Users/nevodavid/Projects/collosy",
     "paths": {
-      "@gitroom/backend/*": ["apps/backend/src/*"],
-      "@gitroom/cron/*": ["apps/cron/src/*"],
-      "@gitroom/frontend/*": ["apps/frontend/src/*"],
-      "@gitroom/helpers/*": ["libraries/helpers/src/*"],
-      "@gitroom/nestjs-libraries/*": ["libraries/nestjs-libraries/src/*"],
-      "@gitroom/react/*": ["libraries/react-shared-libraries/src/*"],
-      "@gitroom/plugins/*": ["libraries/plugins/src/*"],
-      "@gitroom/workers/*": ["apps/workers/src/*"],
-      "@gitroom/extension/*": ["apps/extension/src/*"]
+      "@collosy/backend/*": ["apps/backend/src/*"],
+      "@collosy/cron/*": ["apps/cron/src/*"],
+      "@collosy/frontend/*": ["apps/frontend/src/*"],
+      "@collosy/helpers/*": ["libraries/helpers/src/*"],
+      "@collosy/nestjs-libraries/*": ["libraries/nestjs-libraries/src/*"],
+      "@collosy/react/*": ["libraries/react-shared-libraries/src/*"],
+      "@collosy/plugins/*": ["libraries/plugins/src/*"],
+      "@collosy/workers/*": ["apps/workers/src/*"],
+      "@collosy/extension/*": ["apps/extension/src/*"]
     },
     "keepClassNames": true,
     "transform": {

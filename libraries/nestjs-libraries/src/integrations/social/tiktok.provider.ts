@@ -4,19 +4,19 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
 import dayjs from 'dayjs';
 import {
   BadBody,
   SocialAbstract,
   ValidityMedia,
-} from '@gitroom/nestjs-libraries/integrations/social.abstract';
-import { TikTokDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
-import { timer } from '@gitroom/helpers/utils/timer';
-import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+} from '@collosy/nestjs-libraries/integrations/social.abstract';
+import { TikTokDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
+import { timer } from '@collosy/helpers/utils/timer';
+import { hasExtension } from '@collosy/helpers/utils/has.extension';
 import { createReadStream, statSync } from 'fs';
 import { Integration } from '@prisma/client';
-import { Rules } from '@gitroom/nestjs-libraries/chat/rules.description.decorator';
+import { Rules } from '@collosy/nestjs-libraries/chat/rules.description.decorator';
 
 @Rules(
   [
@@ -214,7 +214,7 @@ export class TiktokProvider extends SocialAbstract implements SocialProvider {
       return {
         type: 'bad-body' as const,
         value:
-          'You have to upload the picture/video to Postiz when sending a URL',
+          'You have to upload the picture/video to Collosy when sending a URL',
       };
     }
 

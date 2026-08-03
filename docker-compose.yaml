@@ -1,7 +1,7 @@
 services:
-  postiz:
+  collosy:
     image: ghcr.io/gitroomhq/postiz-app:latest
-    container_name: postiz
+    container_name: collosy
     restart: always
     environment:
       # === Required Settings
@@ -9,8 +9,8 @@ services:
       FRONTEND_URL: 'http://localhost:4007'
       NEXT_PUBLIC_BACKEND_URL: 'http://localhost:4007/api'
       JWT_SECRET: 'random string that is unique to every install - just type random characters here!'
-      DATABASE_URL: 'postgresql://postiz-user:postiz-password@postiz-postgres:5432/postiz-db-local'
-      REDIS_URL: 'redis://postiz-redis:6379'
+      DATABASE_URL: 'postgresql://collosy-user:collosy-password@collosy-postgres:5432/collosy-db-local'
+      REDIS_URL: 'redis://collosy-redis:6379'
       BACKEND_INTERNAL_URL: 'http://localhost:3000'
       TEMPORAL_ADDRESS: 'temporal:7233'
       IS_GENERAL: 'true'
@@ -67,16 +67,16 @@ services:
       MASTODON_CLIENT_SECRET: ''
 
       # === OAuth & Authentik Settings
-      # NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME: 'Authentik'
-      # NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/authentik.png'
-      # POSTIZ_GENERIC_OAUTH: 'false'
-      # POSTIZ_OAUTH_URL: 'https://auth.example.com'
-      # POSTIZ_OAUTH_AUTH_URL: 'https://auth.example.com/application/o/authorize'
-      # POSTIZ_OAUTH_TOKEN_URL: 'https://auth.example.com/application/o/token'
-      # POSTIZ_OAUTH_USERINFO_URL: 'https://authentik.example.com/application/o/userinfo'
-      # POSTIZ_OAUTH_CLIENT_ID: ''
-      # POSTIZ_OAUTH_CLIENT_SECRET: ''
-      # POSTIZ_OAUTH_SCOPE: "openid profile email"  # Optional: uncomment to override default scope
+      # NEXT_PUBLIC_COLLOSY_OAUTH_DISPLAY_NAME: 'Authentik'
+      # NEXT_PUBLIC_COLLOSY_OAUTH_LOGO_URL: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/authentik.png'
+      # COLLOSY_GENERIC_OAUTH: 'false'
+      # COLLOSY_OAUTH_URL: 'https://auth.example.com'
+      # COLLOSY_OAUTH_AUTH_URL: 'https://auth.example.com/application/o/authorize'
+      # COLLOSY_OAUTH_TOKEN_URL: 'https://auth.example.com/application/o/token'
+      # COLLOSY_OAUTH_USERINFO_URL: 'https://authentik.example.com/application/o/userinfo'
+      # COLLOSY_OAUTH_CLIENT_ID: ''
+      # COLLOSY_OAUTH_CLIENT_SECRET: ''
+      # COLLOSY_OAUTH_SCOPE: "openid profile email"  # Optional: uncomment to override default scope
 
       # === Sentry
 
@@ -112,39 +112,39 @@ services:
       # LINK_DRIP_SHORT_LINK_DOMAIN: "dripl.ink"
 
     volumes:
-      - postiz-config:/config/
-      - postiz-uploads:/uploads/
+      - collosy-config:/config/
+      - collosy-uploads:/uploads/
     ports:
       - '4007:5000'
     networks:
-      - postiz-network
+      - collosy-network
       - temporal-network
     depends_on:
-      postiz-postgres:
+      collosy-postgres:
         condition: service_healthy
-      postiz-redis:
+      collosy-redis:
         condition: service_healthy
 
-  postiz-postgres:
+  collosy-postgres:
     image: postgres:17-alpine
-    container_name: postiz-postgres
+    container_name: collosy-postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: postiz-password
-      POSTGRES_USER: postiz-user
-      POSTGRES_DB: postiz-db-local
+      POSTGRES_PASSWORD: collosy-password
+      POSTGRES_USER: collosy-user
+      POSTGRES_DB: collosy-db-local
     volumes:
       - postgres-volume:/var/lib/postgresql/data
     networks:
-      - postiz-network
+      - collosy-network
     healthcheck:
-      test: pg_isready -U postiz-user -d postiz-db-local
+      test: pg_isready -U collosy-user -d collosy-db-local
       interval: 10s
       timeout: 3s
       retries: 3
-  postiz-redis:
+  collosy-redis:
     image: redis:7.2
-    container_name: postiz-redis
+    container_name: collosy-redis
     restart: always
     healthcheck:
       test: redis-cli ping
@@ -152,9 +152,9 @@ services:
       timeout: 3s
       retries: 3
     volumes:
-      - postiz-redis-data:/data
+      - collosy-redis-data:/data
     networks:
-      - postiz-network
+      - collosy-network
 
   # For Application Monitoring / Debugging
   spotlight:
@@ -164,7 +164,7 @@ services:
       - 8969:8969/tcp
     image: ghcr.io/getsentry/spotlight:latest
     networks:
-      - postiz-network
+      - collosy-network
 
   # -----------------------
   # Temporal Stack
@@ -254,17 +254,17 @@ volumes:
   postgres-volume:
     external: false
 
-  postiz-redis-data:
+  collosy-redis-data:
     external: false
 
-  postiz-config:
+  collosy-config:
     external: false
 
-  postiz-uploads:
+  collosy-uploads:
     external: false
 
 networks:
-  postiz-network:
+  collosy-network:
     external: false
   temporal-network:
     driver: bridge

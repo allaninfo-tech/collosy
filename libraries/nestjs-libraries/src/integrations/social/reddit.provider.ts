@@ -3,21 +3,21 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { RedditSettingsDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
-import { timer } from '@gitroom/helpers/utils/timer';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { RedditSettingsDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
+import { timer } from '@collosy/helpers/utils/timer';
 import { groupBy } from 'lodash';
 import {
   SocialAbstract,
   ValidityMedia,
-} from '@gitroom/nestjs-libraries/integrations/social.abstract';
+} from '@collosy/nestjs-libraries/integrations/social.abstract';
 import { lookup } from 'mime-types';
 import axios from 'axios';
 import WebSocket from 'ws';
-import { Tool } from '@gitroom/nestjs-libraries/integrations/tool.decorator';
+import { Tool } from '@collosy/nestjs-libraries/integrations/tool.decorator';
 import { Integration } from '@prisma/client';
-import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+import { hasExtension } from '@collosy/helpers/utils/has.extension';
 
 // @ts-ignore
 global.WebSocket = WebSocket;

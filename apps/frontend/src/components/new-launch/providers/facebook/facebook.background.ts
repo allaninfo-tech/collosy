@@ -1,4 +1,4 @@
-import { FACEBOOK_PRESETS } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
+import { FACEBOOK_PRESETS } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
 
 // Facebook does not expose the real preset assets, so we approximate each
 // background's color from its descriptive name (e.g. "Solid purple",

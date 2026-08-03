@@ -1,28 +1,28 @@
 import 'reflect-metadata';
 
 import { Injectable } from '@nestjs/common';
-import { XProvider } from '@gitroom/nestjs-libraries/integrations/social/x.provider';
-import { SocialProvider } from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { LinkedinProvider } from '@gitroom/nestjs-libraries/integrations/social/linkedin.provider';
-import { RedditProvider } from '@gitroom/nestjs-libraries/integrations/social/reddit.provider';
-import { FacebookProvider } from '@gitroom/nestjs-libraries/integrations/social/facebook.provider';
-import { InstagramProvider } from '@gitroom/nestjs-libraries/integrations/social/instagram.provider';
-import { YoutubeProvider } from '@gitroom/nestjs-libraries/integrations/social/youtube.provider';
-import { TiktokProvider } from '@gitroom/nestjs-libraries/integrations/social/tiktok.provider';
-import { PinterestProvider } from '@gitroom/nestjs-libraries/integrations/social/pinterest.provider';
-import { DribbbleProvider } from '@gitroom/nestjs-libraries/integrations/social/dribbble.provider';
-import { LinkedinPageProvider } from '@gitroom/nestjs-libraries/integrations/social/linkedin.page.provider';
-import { ThreadsProvider } from '@gitroom/nestjs-libraries/integrations/social/threads.provider';
-import { DiscordProvider } from '@gitroom/nestjs-libraries/integrations/social/discord.provider';
-import { SlackProvider } from '@gitroom/nestjs-libraries/integrations/social/slack.provider';
-import { MastodonProvider } from '@gitroom/nestjs-libraries/integrations/social/mastodon.provider';
-import { BlueskyProvider } from '@gitroom/nestjs-libraries/integrations/social/bluesky.provider';
-import { InstagramStandaloneProvider } from '@gitroom/nestjs-libraries/integrations/social/instagram.standalone.provider';
-import { TelegramProvider } from '@gitroom/nestjs-libraries/integrations/social/telegram.provider';
-import { WordpressProvider } from '@gitroom/nestjs-libraries/integrations/social/wordpress.provider';
-import { GmbProvider } from '@gitroom/nestjs-libraries/integrations/social/gmb.provider';
-import { SocialAbstract } from '@gitroom/nestjs-libraries/integrations/social.abstract';
-import { TumblrProvider } from '@gitroom/nestjs-libraries/integrations/social/tumblr.provider';
+import { XProvider } from '@collosy/nestjs-libraries/integrations/social/x.provider';
+import { SocialProvider } from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { LinkedinProvider } from '@collosy/nestjs-libraries/integrations/social/linkedin.provider';
+import { RedditProvider } from '@collosy/nestjs-libraries/integrations/social/reddit.provider';
+import { FacebookProvider } from '@collosy/nestjs-libraries/integrations/social/facebook.provider';
+import { InstagramProvider } from '@collosy/nestjs-libraries/integrations/social/instagram.provider';
+import { YoutubeProvider } from '@collosy/nestjs-libraries/integrations/social/youtube.provider';
+import { TiktokProvider } from '@collosy/nestjs-libraries/integrations/social/tiktok.provider';
+import { PinterestProvider } from '@collosy/nestjs-libraries/integrations/social/pinterest.provider';
+import { DribbbleProvider } from '@collosy/nestjs-libraries/integrations/social/dribbble.provider';
+import { LinkedinPageProvider } from '@collosy/nestjs-libraries/integrations/social/linkedin.page.provider';
+import { ThreadsProvider } from '@collosy/nestjs-libraries/integrations/social/threads.provider';
+import { DiscordProvider } from '@collosy/nestjs-libraries/integrations/social/discord.provider';
+import { SlackProvider } from '@collosy/nestjs-libraries/integrations/social/slack.provider';
+import { MastodonProvider } from '@collosy/nestjs-libraries/integrations/social/mastodon.provider';
+import { BlueskyProvider } from '@collosy/nestjs-libraries/integrations/social/bluesky.provider';
+import { InstagramStandaloneProvider } from '@collosy/nestjs-libraries/integrations/social/instagram.standalone.provider';
+import { TelegramProvider } from '@collosy/nestjs-libraries/integrations/social/telegram.provider';
+import { WordpressProvider } from '@collosy/nestjs-libraries/integrations/social/wordpress.provider';
+import { GmbProvider } from '@collosy/nestjs-libraries/integrations/social/gmb.provider';
+import { SocialAbstract } from '@collosy/nestjs-libraries/integrations/social.abstract';
+import { TumblrProvider } from '@collosy/nestjs-libraries/integrations/social/tumblr.provider';
 
 export const socialIntegrationList: Array<SocialAbstract & SocialProvider> = [
   new XProvider(),

@@ -3,17 +3,17 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { SocialAbstract } from '@gitroom/nestjs-libraries/integrations/social.abstract';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { SocialAbstract } from '@collosy/nestjs-libraries/integrations/social.abstract';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { WordpressDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/wordpress.dto';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { WordpressDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/wordpress.dto';
 import slugify from 'slugify';
 // import FormData from 'form-data';
 import axios from 'axios';
-import { Tool } from '@gitroom/nestjs-libraries/integrations/tool.decorator';
-import { getSsrfSafeDispatcher } from '@gitroom/nestjs-libraries/dtos/webhooks/ssrf.safe.dispatcher';
+import { Tool } from '@collosy/nestjs-libraries/integrations/tool.decorator';
+import { getSsrfSafeDispatcher } from '@collosy/nestjs-libraries/dtos/webhooks/ssrf.safe.dispatcher';
 import { string } from 'yup';
 
 export class WordpressProvider

@@ -1,13 +1,13 @@
 import {
   PrismaRepository,
   PrismaTransaction,
-} from '@gitroom/nestjs-libraries/database/prisma/prisma.service';
+} from '@collosy/nestjs-libraries/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { Provider, Role } from '@prisma/client';
-import { AuthService } from '@gitroom/helpers/auth/auth.service';
-import { UserDetailDto } from '@gitroom/nestjs-libraries/dtos/users/user.details.dto';
-import { EmailNotificationsDto } from '@gitroom/nestjs-libraries/dtos/users/email-notifications.dto';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
+import { AuthService } from '@collosy/helpers/auth/auth.service';
+import { UserDetailDto } from '@collosy/nestjs-libraries/dtos/users/user.details.dto';
+import { EmailNotificationsDto } from '@collosy/nestjs-libraries/dtos/users/email-notifications.dto';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
 
 @Injectable()
 export class UsersRepository {

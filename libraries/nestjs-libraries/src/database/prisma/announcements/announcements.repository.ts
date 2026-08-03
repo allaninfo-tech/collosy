@@ -1,6 +1,6 @@
-import { PrismaRepository } from '@gitroom/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@collosy/nestjs-libraries/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { AnnouncementDto } from '@gitroom/nestjs-libraries/dtos/announcements/announcements.dto';
+import { AnnouncementDto } from '@collosy/nestjs-libraries/dtos/announcements/announcements.dto';
 import { AnnouncementColor } from '@prisma/client';
 
 @Injectable()

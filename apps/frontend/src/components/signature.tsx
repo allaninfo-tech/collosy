@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
-import { SignaturesComponent } from '@gitroom/frontend/components/settings/signatures.component';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { SignaturesComponent } from '@collosy/frontend/components/settings/signatures.component';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 export const SignatureBox: FC<{
   editor: any;
 }> = ({ editor }) => {

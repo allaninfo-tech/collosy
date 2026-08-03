@@ -1,8 +1,8 @@
-import { initializeSentry } from '@gitroom/nestjs-libraries/sentry/initialize.sentry';
+import { initializeSentry } from '@collosy/nestjs-libraries/sentry/initialize.sentry';
 initializeSentry('backend', true);
 import compression from 'compression';
 
-import { loadSwagger } from '@gitroom/helpers/swagger/load.swagger';
+import { loadSwagger } from '@collosy/helpers/swagger/load.swagger';
 import { json } from 'express';
 import { Runtime } from '@temporalio/worker';
 Runtime.install({ shutdownSignals: [] });
@@ -14,11 +14,11 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
-import { SubscriptionExceptionFilter } from '@gitroom/backend/services/auth/permissions/subscription.exception';
-import { PostValidationExceptionFilter } from '@gitroom/backend/api/routes/posts.validation.exception';
-import { HttpExceptionFilter } from '@gitroom/nestjs-libraries/services/exception.filter';
-import { ConfigurationChecker } from '@gitroom/helpers/configuration/configuration.checker';
-import { startMcp } from '@gitroom/nestjs-libraries/chat/start.mcp';
+import { SubscriptionExceptionFilter } from '@collosy/backend/services/auth/permissions/subscription.exception';
+import { PostValidationExceptionFilter } from '@collosy/backend/api/routes/posts.validation.exception';
+import { HttpExceptionFilter } from '@collosy/nestjs-libraries/services/exception.filter';
+import { ConfigurationChecker } from '@collosy/helpers/configuration/configuration.checker';
+import { startMcp } from '@collosy/nestjs-libraries/chat/start.mcp';
 
 async function start() {
   const app = await NestFactory.create(AppModule, {

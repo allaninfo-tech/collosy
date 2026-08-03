@@ -14,8 +14,8 @@ import {
   InputProps,
   UserMessageProps,
 } from '@copilotkit/react-ui/dist/components/chat/props';
-import { Input } from '@gitroom/frontend/components/agents/agent.input';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { Input } from '@collosy/frontend/components/agents/agent.input';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 import {
   CopilotKit,
   useCopilotAction,
@@ -24,20 +24,20 @@ import {
 import {
   MediaPortal,
   PropertiesContext,
-} from '@gitroom/frontend/components/agents/agent';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
+} from '@collosy/frontend/components/agents/agent';
+import { useVariables } from '@collosy/react/helpers/variable.context';
 import { useParams } from 'next/navigation';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import {
   Message as CopilotMessage,
   TextMessage,
 } from '@copilotkit/runtime-client-gql';
-import { AddEditModal } from '@gitroom/frontend/components/new-launch/add.edit.modal';
+import { AddEditModal } from '@collosy/frontend/components/new-launch/add.edit.modal';
 import dayjs from 'dayjs';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { ExistingDataContextProvider } from '@gitroom/frontend/components/launches/helpers/use.existing.data';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { ExistingDataContextProvider } from '@collosy/frontend/components/launches/helpers/use.existing.data';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { hasExtension } from '@collosy/helpers/utils/has.extension';
 
 export const AgentChat: FC = () => {
   const { backendUrl } = useVariables();
@@ -51,7 +51,7 @@ export const AgentChat: FC = () => {
       credentials="include"
       runtimeUrl={backendUrl + '/copilot/agent'}
       showDevConsole={false}
-      agent="postiz"
+      agent="collosy"
       properties={{
         integrations: properties,
       }}
@@ -72,7 +72,7 @@ export const AgentChat: FC = () => {
             className="w-full h-full"
             labels={{
               title: t('your_assistant', 'Your Assistant'),
-              initial: t('agent_welcome_message', `Hello, I am your Postiz agent 🙌🏻.
+              initial: t('agent_welcome_message', `Hello, I am your Collosy agent 🙌🏻.
               
 I can schedule a post or multiple posts to multiple channels and generate pictures and videos.
 

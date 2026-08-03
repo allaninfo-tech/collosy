@@ -1,6 +1,6 @@
-import { Dub } from '@gitroom/nestjs-libraries/short-linking/providers/dub';
-import { Empty } from '@gitroom/nestjs-libraries/short-linking/providers/empty';
-import { ShortLinking } from '@gitroom/nestjs-libraries/short-linking/short-linking.interface';
+import { Dub } from '@collosy/nestjs-libraries/short-linking/providers/dub';
+import { Empty } from '@collosy/nestjs-libraries/short-linking/providers/empty';
+import { ShortLinking } from '@collosy/nestjs-libraries/short-linking/short-linking.interface';
 import { Injectable } from '@nestjs/common';
 import { ShortIo } from './providers/short.io';
 import { Kutt } from './providers/kutt';

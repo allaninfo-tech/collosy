@@ -7,11 +7,11 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
-import { GetUserFromRequest } from '@gitroom/nestjs-libraries/user/user.from.request';
+import { GetUserFromRequest } from '@collosy/nestjs-libraries/user/user.from.request';
 import { User } from '@prisma/client';
 import { ApiTags } from '@nestjs/swagger';
-import { AnnouncementsService } from '@gitroom/nestjs-libraries/database/prisma/announcements/announcements.service';
-import { AnnouncementDto } from '@gitroom/nestjs-libraries/dtos/announcements/announcements.dto';
+import { AnnouncementsService } from '@collosy/nestjs-libraries/database/prisma/announcements/announcements.service';
+import { AnnouncementDto } from '@collosy/nestjs-libraries/dtos/announcements/announcements.dto';
 
 @ApiTags('Announcements')
 @Controller('/announcements')

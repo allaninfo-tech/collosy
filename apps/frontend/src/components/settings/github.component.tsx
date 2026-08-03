@@ -1,13 +1,13 @@
 'use client';
 
-import SafeImage from '@gitroom/react/helpers/safe.image';
-import { Button } from '@gitroom/react/form/button';
+import SafeImage from '@collosy/react/helpers/safe.image';
+import { Button } from '@collosy/react/form/button';
 import { FC, Fragment, useCallback, useEffect, useState } from 'react';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
-import { Input } from '@gitroom/react/form/input';
-import { useToaster } from '@gitroom/react/toaster/toaster';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { deleteDialog } from '@collosy/react/helpers/delete.dialog';
+import { Input } from '@collosy/react/form/input';
+import { useToaster } from '@collosy/react/toaster/toaster';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 const ConnectedComponent: FC<{
   id: string;
   login: string;

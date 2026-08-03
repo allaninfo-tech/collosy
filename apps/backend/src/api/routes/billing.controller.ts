@@ -1,16 +1,16 @@
 import { Body, Controller, Get, HttpException, Param, Post, Req } from '@nestjs/common';
-import { SubscriptionService } from '@gitroom/nestjs-libraries/database/prisma/subscriptions/subscription.service';
-import { StripeService } from '@gitroom/nestjs-libraries/services/stripe.service';
-import { GetOrgFromRequest } from '@gitroom/nestjs-libraries/user/org.from.request';
+import { SubscriptionService } from '@collosy/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { StripeService } from '@collosy/nestjs-libraries/services/stripe.service';
+import { GetOrgFromRequest } from '@collosy/nestjs-libraries/user/org.from.request';
 import { Organization, User } from '@prisma/client';
-import { BillingSubscribeDto } from '@gitroom/nestjs-libraries/dtos/billing/billing.subscribe.dto';
-import { AdminApplyCouponDto } from '@gitroom/nestjs-libraries/dtos/billing/admin.apply.coupon.dto';
+import { BillingSubscribeDto } from '@collosy/nestjs-libraries/dtos/billing/billing.subscribe.dto';
+import { AdminApplyCouponDto } from '@collosy/nestjs-libraries/dtos/billing/admin.apply.coupon.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { GetUserFromRequest } from '@gitroom/nestjs-libraries/user/user.from.request';
-import { NotificationService } from '@gitroom/nestjs-libraries/database/prisma/notifications/notification.service';
+import { GetUserFromRequest } from '@collosy/nestjs-libraries/user/user.from.request';
+import { NotificationService } from '@collosy/nestjs-libraries/database/prisma/notifications/notification.service';
 import { Request } from 'express';
-import { AuthService } from '@gitroom/helpers/auth/auth.service';
-import { UsersService } from '@gitroom/nestjs-libraries/database/prisma/users/users.service';
+import { AuthService } from '@collosy/helpers/auth/auth.service';
+import { UsersService } from '@collosy/nestjs-libraries/database/prisma/users/users.service';
 
 @ApiTags('Billing')
 @Controller('/billing')

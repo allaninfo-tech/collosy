@@ -3,10 +3,10 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { SocialAbstract } from '@gitroom/nestjs-libraries/integrations/social.abstract';
-import { getSsrfSafeDispatcher } from '@gitroom/nestjs-libraries/dtos/webhooks/ssrf.safe.dispatcher';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { SocialAbstract } from '@collosy/nestjs-libraries/integrations/social.abstract';
+import { getSsrfSafeDispatcher } from '@collosy/nestjs-libraries/dtos/webhooks/ssrf.safe.dispatcher';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
 import { number, string } from 'yup';

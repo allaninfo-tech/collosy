@@ -1,10 +1,10 @@
-import { getT } from '@gitroom/react/translation/get.translation.service.backend';
+import { getT } from '@collosy/react/translation/get.translation.service.backend';
 
 export const dynamic = 'force-dynamic';
 import { ReactNode } from 'react';
 import loadDynamic from 'next/dynamic';
-import { TestimonialComponent } from '@gitroom/frontend/components/auth/testimonial.component';
-import { LogoTextComponent } from '@gitroom/frontend/components/ui/logo-text.component';
+import { TestimonialComponent } from '@collosy/frontend/components/auth/testimonial.component';
+import { LogoTextComponent } from '@collosy/frontend/components/ui/logo-text.component';
 const ReturnUrlComponent = loadDynamic(() => import('./return.url.component'));
 export default async function AuthLayout({
   children,
@@ -28,7 +28,7 @@ export default async function AuthLayout({
           Over <span className="text-[42px] text-[#FC69FF]">20,000+</span>{' '}
           Entrepreneurs use
           <br />
-          Postiz To Grow Their Social Presence
+          Collosy To Grow Their Social Presence
         </div>
         <TestimonialComponent />
       </div>

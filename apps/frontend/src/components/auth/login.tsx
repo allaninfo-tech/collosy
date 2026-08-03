@@ -1,18 +1,18 @@
 'use client';
 
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import Link from 'next/link';
-import { Button } from '@gitroom/react/form/button';
-import { Input } from '@gitroom/react/form/input';
+import { Button } from '@collosy/react/form/button';
+import { Input } from '@collosy/react/form/input';
 import { useMemo, useState } from 'react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { LoginUserDto } from '@gitroom/nestjs-libraries/dtos/auth/login.user.dto';
-import { GithubProvider } from '@gitroom/frontend/components/auth/providers/github.provider';
-import { OauthProvider } from '@gitroom/frontend/components/auth/providers/oauth.provider';
-import { GoogleProvider } from '@gitroom/frontend/components/auth/providers/google.provider';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { LoginUserDto } from '@collosy/nestjs-libraries/dtos/auth/login.user.dto';
+import { GithubProvider } from '@collosy/frontend/components/auth/providers/github.provider';
+import { OauthProvider } from '@collosy/frontend/components/auth/providers/oauth.provider';
+import { GoogleProvider } from '@collosy/frontend/components/auth/providers/google.provider';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 type Inputs = {
   email: string;
   password: string;

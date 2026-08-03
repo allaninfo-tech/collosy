@@ -1,16 +1,16 @@
 import Stripe from 'stripe';
 import { Injectable } from '@nestjs/common';
 import { Organization, User } from '@prisma/client';
-import { SubscriptionService } from '@gitroom/nestjs-libraries/database/prisma/subscriptions/subscription.service';
-import { OrganizationService } from '@gitroom/nestjs-libraries/database/prisma/organizations/organization.service';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
-import { BillingSubscribeDto } from '@gitroom/nestjs-libraries/dtos/billing/billing.subscribe.dto';
+import { SubscriptionService } from '@collosy/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { OrganizationService } from '@collosy/nestjs-libraries/database/prisma/organizations/organization.service';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
+import { BillingSubscribeDto } from '@collosy/nestjs-libraries/dtos/billing/billing.subscribe.dto';
 import { groupBy } from 'lodash';
-import { pricing } from '@gitroom/nestjs-libraries/database/prisma/subscriptions/pricing';
-import { AuthService } from '@gitroom/helpers/auth/auth.service';
-import { TrackService } from '@gitroom/nestjs-libraries/track/track.service';
-import { UsersService } from '@gitroom/nestjs-libraries/database/prisma/users/users.service';
-import { TrackEnum } from '@gitroom/nestjs-libraries/user/track.enum';
+import { pricing } from '@collosy/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { AuthService } from '@collosy/helpers/auth/auth.service';
+import { TrackService } from '@collosy/nestjs-libraries/track/track.service';
+import { UsersService } from '@collosy/nestjs-libraries/database/prisma/users/users.service';
+import { TrackEnum } from '@collosy/nestjs-libraries/user/track.enum';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_nothing');
 
@@ -188,7 +188,7 @@ export class StripeService {
       [...emailByCustomer].map(([customerId, email]) =>
         stripe.customers
           .update(customerId, {
-            email: email.indexOf('@') > -1 ? email : `${email}@postiz.com`,
+            email: email.indexOf('@') > -1 ? email : `${email}@collosy.com`,
           })
           .catch(() => {})
       )
@@ -202,7 +202,7 @@ export class StripeService {
 
     const users = await this._organizationService.getTeam(organization.id);
     const customer = await stripe.customers.create({
-      email: users.users[0].user.email.indexOf('@') > -1 ? users.users[0].user.email : `${users.users[0].user.email}@postiz.com`,
+      email: users.users[0].user.email.indexOf('@') > -1 ? users.users[0].user.email : `${users.users[0].user.email}@collosy.com`,
       name: organization.name,
     });
     await this._subscriptionService.updateCustomerId(
@@ -351,7 +351,7 @@ export class StripeService {
     if (sub.cancel_at_period_end) {
       const { cancel_at } = await stripe.subscriptions.update(sub.id, {
         cancel_at_period_end: false,
-        metadata: { service: 'gitroom', id },
+        metadata: { service: 'collosy', id },
       });
 
       return {
@@ -381,7 +381,7 @@ export class StripeService {
     // Payment succeeded — cancel at end of billing period
     const { cancel_at } = await stripe.subscriptions.update(sub.id, {
       cancel_at_period_end: true,
-      metadata: { service: 'gitroom', id },
+      metadata: { service: 'collosy', id },
     });
 
     return {
@@ -467,7 +467,7 @@ export class StripeService {
 
     try {
       await stripe.customers.update(customer, {
-        email: user.email.indexOf('@') > -1 ? user.email : `${user.email}@postiz.com`,
+        email: user.email.indexOf('@') > -1 ? user.email : `${user.email}@collosy.com`,
         ...(body.dub
           ? {
               metadata: {
@@ -496,7 +496,7 @@ export class StripeService {
       subscription_data: {
         ...(allowTrial ? { trial_period_days: 7 } : {}),
         metadata: {
-          service: 'gitroom',
+          service: 'collosy',
           ...body,
           userId,
           uniqueId,
@@ -557,7 +557,7 @@ export class StripeService {
       subscription_data: {
         ...(allowTrial ? { trial_period_days: 7 } : {}),
         metadata: {
-          service: 'gitroom',
+          service: 'collosy',
           ...body,
           userId,
           uniqueId,
@@ -831,7 +831,7 @@ export class StripeService {
       await stripe.subscriptions.update(currentUserSubscription.data[0].id, {
         cancel_at_period_end: false,
         metadata: {
-          service: 'gitroom',
+          service: 'collosy',
           ...body,
           userId,
           id,
@@ -1106,7 +1106,7 @@ export class StripeService {
       ...(body.months === 1
         ? { duration: 'once' }
         : { duration: 'repeating', duration_in_months: body.months }),
-      metadata: { service: 'gitroom', organizationId },
+      metadata: { service: 'collosy', organizationId },
     });
 
     await stripe.subscriptions.update(stripeSubscription.id, {

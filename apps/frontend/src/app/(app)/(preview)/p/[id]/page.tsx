@@ -1,22 +1,22 @@
-import { internalFetch } from '@gitroom/helpers/utils/internal.fetch';
-import { sanitizePostContent } from '@gitroom/helpers/utils/sanitize.post.content';
+import { internalFetch } from '@collosy/helpers/utils/internal.fetch';
+import { sanitizePostContent } from '@collosy/helpers/utils/sanitize.post.content';
 export const dynamic = 'force-dynamic';
 import { Metadata } from 'next';
-import { isGeneralServerSide } from '@gitroom/helpers/utils/is.general.server.side';
-import SafeImage from '@gitroom/react/helpers/safe.image';
+import { isGeneralServerSide } from '@collosy/helpers/utils/is.general.server.side';
+import SafeImage from '@collosy/react/helpers/safe.image';
 import Link from 'next/link';
-import { CommentsComponents } from '@gitroom/frontend/components/preview/comments.components';
+import { CommentsComponents } from '@collosy/frontend/components/preview/comments.components';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { VideoOrImage } from '@gitroom/react/helpers/video.or.image';
-import { CopyClient } from '@gitroom/frontend/components/preview/copy.client';
-import { getT } from '@gitroom/react/translation/get.translation.service.backend';
-import { RenderPreviewDateClient } from '@gitroom/frontend/components/preview/render.preview.date.client';
-import { CreationMethodBadge } from '@gitroom/frontend/components/launches/creation.method.badge';
+import { VideoOrImage } from '@collosy/react/helpers/video.or.image';
+import { CopyClient } from '@collosy/frontend/components/preview/copy.client';
+import { getT } from '@collosy/react/translation/get.translation.service.backend';
+import { RenderPreviewDateClient } from '@collosy/frontend/components/preview/render.preview.date.client';
+import { CreationMethodBadge } from '@collosy/frontend/components/launches/creation.method.badge';
 
 dayjs.extend(utc);
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Postiz' : 'Gitroom'} Preview`,
+  title: `${isGeneralServerSide() ? 'Collosy' : 'Collosy'} Preview`,
   description: '',
 };
 export default async function Auth(
@@ -58,7 +58,7 @@ export default async function Auth(
                 >
                   <div className="max-w-[55px]">
                     <SafeImage
-                      src={'/postiz.svg'}
+                      src={'/collosy.svg'}
                       width={55}
                       height={55}
                       alt="Logo"

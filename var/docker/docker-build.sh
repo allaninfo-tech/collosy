@@ -2,6 +2,6 @@
 
 set -o xtrace
 
-docker rmi localhost/postiz || true
-docker build --target dist -t localhost/postiz -f Dockerfile.dev .
-docker build --target devcontainer -t localhost/postiz-devcontainer -f Dockerfile.dev .
+docker rmi localhost/collosy || true
+docker build --target dist -t localhost/collosy -f Dockerfile.dev .
+docker build --target devcontainer -t localhost/collosy-devcontainer -f Dockerfile.dev .

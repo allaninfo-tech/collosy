@@ -1,37 +1,37 @@
 import {
   AuthProvider,
   AuthProviderAbstract,
-} from '@gitroom/backend/services/auth/providers.interface';
+} from '@collosy/backend/services/auth/providers.interface';
 
 @AuthProvider({ provider: 'GENERIC' })
 export class OauthProvider extends AuthProviderAbstract {
   private getConfig() {
     const {
-      POSTIZ_OAUTH_AUTH_URL,
-      POSTIZ_OAUTH_CLIENT_ID,
-      POSTIZ_OAUTH_CLIENT_SECRET,
-      POSTIZ_OAUTH_TOKEN_URL,
-      POSTIZ_OAUTH_USERINFO_URL,
+      COLLOSY_OAUTH_AUTH_URL,
+      COLLOSY_OAUTH_CLIENT_ID,
+      COLLOSY_OAUTH_CLIENT_SECRET,
+      COLLOSY_OAUTH_TOKEN_URL,
+      COLLOSY_OAUTH_USERINFO_URL,
       FRONTEND_URL,
     } = process.env;
 
     if (
-      !POSTIZ_OAUTH_USERINFO_URL ||
-      !POSTIZ_OAUTH_TOKEN_URL ||
-      !POSTIZ_OAUTH_CLIENT_ID ||
-      !POSTIZ_OAUTH_CLIENT_SECRET ||
-      !POSTIZ_OAUTH_AUTH_URL ||
+      !COLLOSY_OAUTH_USERINFO_URL ||
+      !COLLOSY_OAUTH_TOKEN_URL ||
+      !COLLOSY_OAUTH_CLIENT_ID ||
+      !COLLOSY_OAUTH_CLIENT_SECRET ||
+      !COLLOSY_OAUTH_AUTH_URL ||
       !FRONTEND_URL
     ) {
-      throw new Error('POSTIZ_OAUTH environment variables are not set');
+      throw new Error('COLLOSY_OAUTH environment variables are not set');
     }
 
     return {
-      authUrl: POSTIZ_OAUTH_AUTH_URL,
-      clientId: POSTIZ_OAUTH_CLIENT_ID,
-      clientSecret: POSTIZ_OAUTH_CLIENT_SECRET,
-      tokenUrl: POSTIZ_OAUTH_TOKEN_URL,
-      userInfoUrl: POSTIZ_OAUTH_USERINFO_URL,
+      authUrl: COLLOSY_OAUTH_AUTH_URL,
+      clientId: COLLOSY_OAUTH_CLIENT_ID,
+      clientSecret: COLLOSY_OAUTH_CLIENT_SECRET,
+      tokenUrl: COLLOSY_OAUTH_TOKEN_URL,
+      userInfoUrl: COLLOSY_OAUTH_USERINFO_URL,
       frontendUrl: FRONTEND_URL,
     };
   }

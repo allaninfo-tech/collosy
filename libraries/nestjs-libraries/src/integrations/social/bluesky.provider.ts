@@ -3,14 +3,14 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@gitroom/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
+} from '@collosy/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
 import {
   BadBody,
   RefreshToken,
   SocialAbstract,
   ValidityMedia,
-} from '@gitroom/nestjs-libraries/integrations/social.abstract';
+} from '@collosy/nestjs-libraries/integrations/social.abstract';
 import {
   BskyAgent,
   RichText,
@@ -21,15 +21,15 @@ import {
 } from '@atproto/api';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { AuthService } from '@gitroom/helpers/auth/auth.service';
-import { isSafePublicHttpsUrl } from '@gitroom/nestjs-libraries/dtos/webhooks/webhook.url.validator';
+import { AuthService } from '@collosy/helpers/auth/auth.service';
+import { isSafePublicHttpsUrl } from '@collosy/nestjs-libraries/dtos/webhooks/webhook.url.validator';
 import sharp from 'sharp';
-import { Plug } from '@gitroom/helpers/decorators/plug.decorator';
-import { timer } from '@gitroom/helpers/utils/timer';
+import { Plug } from '@collosy/helpers/decorators/plug.decorator';
+import { timer } from '@collosy/helpers/utils/timer';
 import axios from 'axios';
-import { stripHtmlValidation } from '@gitroom/helpers/utils/strip.html.validation';
-import { Rules } from '@gitroom/nestjs-libraries/chat/rules.description.decorator';
-import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+import { stripHtmlValidation } from '@collosy/helpers/utils/strip.html.validation';
+import { Rules } from '@collosy/nestjs-libraries/chat/rules.description.decorator';
+import { hasExtension } from '@collosy/helpers/utils/has.extension';
 
 async function reduceImageBySize(url: string, maxSizeKB = 976) {
   try {

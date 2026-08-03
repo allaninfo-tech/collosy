@@ -4,19 +4,19 @@ import useSWR from 'swr';
 import { useCallback, useMemo, useState } from 'react';
 import { capitalize, orderBy } from 'lodash';
 import clsx from 'clsx';
-import ImageWithFallback from '@gitroom/react/helpers/image.with.fallback';
-import SafeImage from '@gitroom/react/helpers/safe.image';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { RenderAnalytics } from '@gitroom/frontend/components/platform-analytics/render.analytics';
-import { Select } from '@gitroom/react/form/select';
-import { Button } from '@gitroom/react/form/button';
+import ImageWithFallback from '@collosy/react/helpers/image.with.fallback';
+import SafeImage from '@collosy/react/helpers/safe.image';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { RenderAnalytics } from '@collosy/frontend/components/platform-analytics/render.analytics';
+import { Select } from '@collosy/react/form/select';
+import { Button } from '@collosy/react/form/button';
 import { useRouter } from 'next/navigation';
-import { useToaster } from '@gitroom/react/toaster/toaster';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
+import { useToaster } from '@collosy/react/toaster/toaster';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { useVariables } from '@collosy/react/helpers/variable.context';
 import useCookie from 'react-use-cookie';
-import { SVGLine } from '@gitroom/frontend/components/launches/launches.component';
-import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
+import { SVGLine } from '@collosy/frontend/components/launches/launches.component';
+import { LoadingComponent } from '@collosy/frontend/components/layout/loading';
 const allowedIntegrations = [
   'facebook',
   'instagram',

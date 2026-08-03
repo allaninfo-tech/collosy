@@ -1,18 +1,18 @@
-import { RedditSettingsDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
-import { PinterestSettingsDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/pinterest.dto';
-import { YoutubeSettingsDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/youtube.settings.dto';
-import { TikTokDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
-import { XDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/x.dto';
-import { DribbbleDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
-import { DiscordDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/discord.dto';
-import { SlackDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/slack.dto';
-import { InstagramDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
-import { LinkedinDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/linkedin.dto';
+import { RedditSettingsDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
+import { PinterestSettingsDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/pinterest.dto';
+import { YoutubeSettingsDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/youtube.settings.dto';
+import { TikTokDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
+import { XDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/x.dto';
+import { DribbbleDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
+import { DiscordDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/discord.dto';
+import { SlackDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/slack.dto';
+import { InstagramDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
+import { LinkedinDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/linkedin.dto';
 import { IsIn } from 'class-validator';
-import { WordpressDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/wordpress.dto';
-import { GmbSettingsDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/gmb.settings.dto';
-import { FacebookDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
-import { TumblrDto } from '@gitroom/nestjs-libraries/dtos/posts/providers-settings/tumblr.dto';
+import { WordpressDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/wordpress.dto';
+import { GmbSettingsDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/gmb.settings.dto';
+import { FacebookDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
+import { TumblrDto } from '@collosy/nestjs-libraries/dtos/posts/providers-settings/tumblr.dto';
 
 export type ProviderExtension<T extends string, M> = { __type: T } & M;
 export type AllProvidersSettings =

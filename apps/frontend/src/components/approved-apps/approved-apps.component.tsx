@@ -1,12 +1,12 @@
 'use client';
 
 import { FC, Fragment, useCallback } from 'react';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Button } from '@gitroom/react/form/button';
-import { useToaster } from '@gitroom/react/toaster/toaster';
-import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { Button } from '@collosy/react/form/button';
+import { useToaster } from '@collosy/react/toaster/toaster';
+import { deleteDialog } from '@collosy/react/helpers/delete.dialog';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 
 const useApprovedApps = () => {
   const fetch = useFetch();
@@ -67,7 +67,7 @@ export const ApprovedAppsComponent: FC = () => {
         <div className="text-customColor18 mt-[4px]">
           {t(
             'apps_you_have_authorized',
-            'Applications you have authorized to access your Postiz account.'
+            'Applications you have authorized to access your Collosy account.'
           )}
         </div>
       </div>

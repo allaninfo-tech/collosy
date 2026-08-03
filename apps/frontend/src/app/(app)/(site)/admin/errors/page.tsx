@@ -1,10 +1,10 @@
 export const dynamic = 'force-dynamic';
-import { AdminErrorsComponent } from '@gitroom/frontend/components/admin/admin-errors.component';
+import { AdminErrorsComponent } from '@collosy/frontend/components/admin/admin-errors.component';
 import { Metadata } from 'next';
-import { isGeneralServerSide } from '@gitroom/helpers/utils/is.general.server.side';
+import { isGeneralServerSide } from '@collosy/helpers/utils/is.general.server.side';
 
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Postiz' : 'Gitroom'} Admin Errors`,
+  title: `${isGeneralServerSide() ? 'Collosy' : 'Collosy'} Admin Errors`,
   description: '',
 };
 

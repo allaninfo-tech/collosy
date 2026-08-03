@@ -1,29 +1,29 @@
 'use client';
 
-import XProvider from '@gitroom/frontend/components/new-launch/providers/x/x.provider';
-import LinkedinProvider from '@gitroom/frontend/components/new-launch/providers/linkedin/linkedin.provider';
-import RedditProvider from '@gitroom/frontend/components/new-launch/providers/reddit/reddit.provider';
-import FacebookProvider from '@gitroom/frontend/components/new-launch/providers/facebook/facebook.provider';
-import InstagramProvider from '@gitroom/frontend/components/new-launch/providers/instagram/instagram.collaborators';
-import YoutubeProvider from '@gitroom/frontend/components/new-launch/providers/youtube/youtube.provider';
-import TiktokProvider from '@gitroom/frontend/components/new-launch/providers/tiktok/tiktok.provider';
-import PinterestProvider from '@gitroom/frontend/components/new-launch/providers/pinterest/pinterest.provider';
-import DribbbleProvider from '@gitroom/frontend/components/new-launch/providers/dribbble/dribbble.provider';
-import ThreadsProvider from '@gitroom/frontend/components/new-launch/providers/threads/threads.provider';
-import DiscordProvider from '@gitroom/frontend/components/new-launch/providers/discord/discord.provider';
-import SlackProvider from '@gitroom/frontend/components/new-launch/providers/slack/slack.provider';
-import MastodonProvider from '@gitroom/frontend/components/new-launch/providers/mastodon/mastodon.provider';
-import BlueskyProvider from '@gitroom/frontend/components/new-launch/providers/bluesky/bluesky.provider';
-import TelegramProvider from '@gitroom/frontend/components/new-launch/providers/telegram/telegram.provider';
-import WordpressProvider from '@gitroom/frontend/components/new-launch/providers/wordpress/wordpress.provider';
-import GmbProvider from '@gitroom/frontend/components/new-launch/providers/gmb/gmb.provider';
-import TumblrProvider from '@gitroom/frontend/components/new-launch/providers/tumblr/tumblr.provider';
-import { useLaunchStore } from '@gitroom/frontend/components/new-launch/store';
+import XProvider from '@collosy/frontend/components/new-launch/providers/x/x.provider';
+import LinkedinProvider from '@collosy/frontend/components/new-launch/providers/linkedin/linkedin.provider';
+import RedditProvider from '@collosy/frontend/components/new-launch/providers/reddit/reddit.provider';
+import FacebookProvider from '@collosy/frontend/components/new-launch/providers/facebook/facebook.provider';
+import InstagramProvider from '@collosy/frontend/components/new-launch/providers/instagram/instagram.collaborators';
+import YoutubeProvider from '@collosy/frontend/components/new-launch/providers/youtube/youtube.provider';
+import TiktokProvider from '@collosy/frontend/components/new-launch/providers/tiktok/tiktok.provider';
+import PinterestProvider from '@collosy/frontend/components/new-launch/providers/pinterest/pinterest.provider';
+import DribbbleProvider from '@collosy/frontend/components/new-launch/providers/dribbble/dribbble.provider';
+import ThreadsProvider from '@collosy/frontend/components/new-launch/providers/threads/threads.provider';
+import DiscordProvider from '@collosy/frontend/components/new-launch/providers/discord/discord.provider';
+import SlackProvider from '@collosy/frontend/components/new-launch/providers/slack/slack.provider';
+import MastodonProvider from '@collosy/frontend/components/new-launch/providers/mastodon/mastodon.provider';
+import BlueskyProvider from '@collosy/frontend/components/new-launch/providers/bluesky/bluesky.provider';
+import TelegramProvider from '@collosy/frontend/components/new-launch/providers/telegram/telegram.provider';
+import WordpressProvider from '@collosy/frontend/components/new-launch/providers/wordpress/wordpress.provider';
+import GmbProvider from '@collosy/frontend/components/new-launch/providers/gmb/gmb.provider';
+import TumblrProvider from '@collosy/frontend/components/new-launch/providers/tumblr/tumblr.provider';
+import { useLaunchStore } from '@collosy/frontend/components/new-launch/store';
 import { useShallow } from 'zustand/react/shallow';
 import React, { FC, forwardRef, useImperativeHandle } from 'react';
-import { GeneralPreviewComponent } from '@gitroom/frontend/components/launches/general.preview.component';
-import { IntegrationContext } from '@gitroom/frontend/components/launches/helpers/use.integration';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { GeneralPreviewComponent } from '@collosy/frontend/components/launches/general.preview.component';
+import { IntegrationContext } from '@collosy/frontend/components/launches/helpers/use.integration';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
 
 export const Providers = [
   {

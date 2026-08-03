@@ -1,9 +1,9 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
-import { MultiSelect } from '@gitroom/react/form/multi.select';
-import { useCustomProviderFunction } from '@gitroom/frontend/components/launches/helpers/use.custom.provider.function';
-import { useSettings } from '@gitroom/frontend/components/launches/helpers/use.values';
+import { MultiSelect } from '@collosy/react/form/multi.select';
+import { useCustomProviderFunction } from '@collosy/frontend/components/launches/helpers/use.custom.provider.function';
+import { useSettings } from '@collosy/frontend/components/launches/helpers/use.values';
 
 // Fetches WordPress terms (categories or tags) for the connected site and wires
 // the reusable MultiSelect primitive into the post settings form. Both fields

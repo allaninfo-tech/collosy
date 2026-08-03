@@ -3,13 +3,13 @@ import 'reflect-metadata';
 import { FC, MutableRefObject, useEffect, useMemo } from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { Providers } from '@gitroom/frontend/components/new-launch/providers/show.all.providers';
-import { getProviderSettingsMeta } from '@gitroom/frontend/components/new-launch/providers/high.order.provider';
+import { Providers } from '@collosy/frontend/components/new-launch/providers/show.all.providers';
+import { getProviderSettingsMeta } from '@collosy/frontend/components/new-launch/providers/high.order.provider';
 import {
   IntegrationContext,
   type IntegrationContextType,
-} from '@gitroom/frontend/components/launches/helpers/use.integration';
-import { newDayjs } from '@gitroom/frontend/components/layout/set.timezone';
+} from '@collosy/frontend/components/launches/helpers/use.integration';
+import { newDayjs } from '@collosy/frontend/components/layout/set.timezone';
 
 type MockIntegration = IntegrationContextType['integration'];
 

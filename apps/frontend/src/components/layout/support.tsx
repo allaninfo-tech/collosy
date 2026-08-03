@@ -2,9 +2,9 @@
 
 import { EventEmitter } from 'events';
 import { useEffect, useState } from 'react';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { ChatbaseComponent } from '@gitroom/frontend/components/layout/chatbase.component';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { ChatbaseComponent } from '@collosy/frontend/components/layout/chatbase.component';
 export const supportEmitter = new EventEmitter();
 export const Support = () => {
   const [show, setShow] = useState(true);

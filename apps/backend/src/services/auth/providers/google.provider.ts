@@ -2,7 +2,7 @@ import { google } from 'googleapis';
 import {
   AuthProvider,
   AuthProviderAbstract,
-} from '@gitroom/backend/services/auth/providers.interface';
+} from '@collosy/backend/services/auth/providers.interface';
 
 const defaultRedirect = () =>
   `${process.env.FRONTEND_URL}/integrations/social/youtube`;

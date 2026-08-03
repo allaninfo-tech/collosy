@@ -1,6 +1,6 @@
 'use client';
 
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 import React, {
   FC,
   Ref,
@@ -10,28 +10,28 @@ import React, {
   useState,
 } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { showMediaBox } from '@gitroom/frontend/components/media/media.component';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { showMediaBox } from '@collosy/frontend/components/media/media.component';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { UserDetailDto } from '@gitroom/nestjs-libraries/dtos/users/user.details.dto';
-import { useToaster } from '@gitroom/react/toaster/toaster';
+import { UserDetailDto } from '@collosy/nestjs-libraries/dtos/users/user.details.dto';
+import { useToaster } from '@collosy/react/toaster/toaster';
 import { useSWRConfig } from 'swr';
 import clsx from 'clsx';
-import { TeamsComponent } from '@gitroom/frontend/components/settings/teams.component';
-import { useUser } from '@gitroom/frontend/components/layout/user.context';
-import { LogoutComponent } from '@gitroom/frontend/components/layout/logout.component';
+import { TeamsComponent } from '@collosy/frontend/components/settings/teams.component';
+import { useUser } from '@collosy/frontend/components/layout/user.context';
+import { LogoutComponent } from '@collosy/frontend/components/layout/logout.component';
 import { useSearchParams } from 'next/navigation';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { PublicComponent } from '@gitroom/frontend/components/public-api/public.component';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { PublicComponent } from '@collosy/frontend/components/public-api/public.component';
 import Link from 'next/link';
-import { Webhooks } from '@gitroom/frontend/components/webhooks/webhooks';
-import { Sets } from '@gitroom/frontend/components/sets/sets';
-import { SignaturesComponent } from '@gitroom/frontend/components/settings/signatures.component';
-import { Autopost } from '@gitroom/frontend/components/autopost/autopost';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { SVGLine } from '@gitroom/frontend/components/launches/launches.component';
-import { GlobalSettings } from '@gitroom/frontend/components/settings/global.settings';
-import { ApprovedAppsComponent } from '@gitroom/frontend/components/approved-apps/approved-apps.component';
+import { Webhooks } from '@collosy/frontend/components/webhooks/webhooks';
+import { Sets } from '@collosy/frontend/components/sets/sets';
+import { SignaturesComponent } from '@collosy/frontend/components/settings/signatures.component';
+import { Autopost } from '@collosy/frontend/components/autopost/autopost';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { SVGLine } from '@collosy/frontend/components/launches/launches.component';
+import { GlobalSettings } from '@collosy/frontend/components/settings/global.settings';
+import { ApprovedAppsComponent } from '@collosy/frontend/components/approved-apps/approved-apps.component';
 export const SettingsPopup: FC<{
   getRef?: Ref<any>;
 }> = (props) => {

@@ -1,15 +1,15 @@
-import { CreateOrgUserDto } from '@gitroom/nestjs-libraries/dtos/auth/create.org.user.dto';
+import { CreateOrgUserDto } from '@collosy/nestjs-libraries/dtos/auth/create.org.user.dto';
 import { HttpException, Injectable } from '@nestjs/common';
-import { OrganizationRepository } from '@gitroom/nestjs-libraries/database/prisma/organizations/organization.repository';
-import { NotificationService } from '@gitroom/nestjs-libraries/database/prisma/notifications/notification.service';
-import { AddTeamMemberDto } from '@gitroom/nestjs-libraries/dtos/settings/add.team.member.dto';
-import { AdminAddTeamMemberDto } from '@gitroom/nestjs-libraries/dtos/settings/admin.add.team.member.dto';
-import { pricing } from '@gitroom/nestjs-libraries/database/prisma/subscriptions/pricing';
-import { AuthService } from '@gitroom/helpers/auth/auth.service';
+import { OrganizationRepository } from '@collosy/nestjs-libraries/database/prisma/organizations/organization.repository';
+import { NotificationService } from '@collosy/nestjs-libraries/database/prisma/notifications/notification.service';
+import { AddTeamMemberDto } from '@collosy/nestjs-libraries/dtos/settings/add.team.member.dto';
+import { AdminAddTeamMemberDto } from '@collosy/nestjs-libraries/dtos/settings/admin.add.team.member.dto';
+import { pricing } from '@collosy/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { AuthService } from '@collosy/helpers/auth/auth.service';
 import dayjs from 'dayjs';
-import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
+import { makeId } from '@collosy/nestjs-libraries/services/make.is';
 import { Organization, ShortLinkPreference, User } from '@prisma/client';
-import { AutopostService } from '@gitroom/nestjs-libraries/database/prisma/autopost/autopost.service';
+import { AutopostService } from '@collosy/nestjs-libraries/database/prisma/autopost/autopost.service';
 
 @Injectable()
 export class OrganizationService {
@@ -115,7 +115,7 @@ export class OrganizationService {
       body.email
     );
     if (!users.length) {
-      throw new HttpException('No Postiz account found for this email', 400);
+      throw new HttpException('No Collosy account found for this email', 400);
     }
 
     if (users.length > 1) {

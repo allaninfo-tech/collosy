@@ -1,4 +1,4 @@
-import { ShortLinking } from '@gitroom/nestjs-libraries/short-linking/short-linking.interface';
+import { ShortLinking } from '@collosy/nestjs-libraries/short-linking/short-linking.interface';
 
 const options = {
   headers: {

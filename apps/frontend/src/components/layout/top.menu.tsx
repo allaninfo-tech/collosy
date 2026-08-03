@@ -1,12 +1,12 @@
 'use client';
 
 import { FC, ReactNode, useCallback } from 'react';
-import { useUser } from '@gitroom/frontend/components/layout/user.context';
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { MenuItem } from '@gitroom/frontend/components/new-layout/menu-item';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
-import { AgentMediaModal } from '@gitroom/frontend/components/layout/agent.media.modal';
+import { useUser } from '@collosy/frontend/components/layout/user.context';
+import { useVariables } from '@collosy/react/helpers/variable.context';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { MenuItem } from '@collosy/frontend/components/new-layout/menu-item';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
+import { AgentMediaModal } from '@collosy/frontend/components/layout/agent.media.modal';
 
 interface MenuItemInterface {
   name: string;
@@ -246,7 +246,7 @@ export const useMenuItem = () => {
           />
         </svg>
       ),
-      path: 'https://affiliate.postiz.com',
+      path: 'https://affiliate.collosy.com',
       role: ['ADMIN', 'SUPERADMIN', 'USER'],
       requireBilling: true,
     },

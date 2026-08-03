@@ -2,10 +2,10 @@
 
 import React, { FC, useCallback, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
-import { useUser } from '@gitroom/frontend/components/layout/user.context';
-import { Button } from '@gitroom/react/form/button';
-import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
+import { useUser } from '@collosy/frontend/components/layout/user.context';
+import { Button } from '@collosy/react/form/button';
+import { LoadingComponent } from '@collosy/frontend/components/layout/loading';
 
 interface PerSocial {
   provider: string;

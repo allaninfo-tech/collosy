@@ -1,14 +1,14 @@
 'use client';
 
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import useSWR from 'swr';
 import { orderBy } from 'lodash';
 import clsx from 'clsx';
-import SafeImage from '@gitroom/react/helpers/safe.image';
-import { AddProviderComponent } from '@gitroom/frontend/components/launches/add.provider.component';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import SafeImage from '@collosy/react/helpers/safe.image';
+import { AddProviderComponent } from '@collosy/frontend/components/launches/add.provider.component';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { useModals } from '@collosy/frontend/components/layout/new-modal';
 
 interface OnboardingModalProps {
   onClose: () => void;
@@ -250,12 +250,12 @@ const OnboardingStep2: FC<{ onBack: () => void; onFinish: () => void }> = ({
     <div className="flex flex-col gap-[24px] flex-1">
       <div className="flex gap-[4px] flex-col text-center">
         <div className="text-[24px] font-semibold">
-          {t('watch_tutorial_title', 'Learn How to Use Postiz')}
+          {t('watch_tutorial_title', 'Learn How to Use Collosy')}
         </div>
         <div className="text-[14px] text-customColor18">
           {t(
             'watch_tutorial_description',
-            'Watch this short video to learn how to get the most out of Postiz'
+            'Watch this short video to learn how to get the most out of Collosy'
           )}
         </div>
       </div>
@@ -266,7 +266,7 @@ const OnboardingStep2: FC<{ onBack: () => void; onFinish: () => void }> = ({
           <iframe
             className="h-full aspect-video"
             src="https://www.youtube.com/embed/BdsCVvEYgHU?si=vvhaZJ8I5oXXvVJS?autoplay=1"
-            title="Postiz Tutorial"
+            title="Collosy Tutorial"
             allow="autoplay"
             allowFullScreen
           />

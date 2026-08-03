@@ -11,25 +11,25 @@ import React, {
 import { useForm, FormProvider } from 'react-hook-form';
 import { IsOptional } from 'class-validator';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { useLaunchStore } from '@gitroom/frontend/components/new-launch/store';
+import { useLaunchStore } from '@collosy/frontend/components/new-launch/store';
 import { useShallow } from 'zustand/react/shallow';
-import { GeneralPreviewComponent } from '@gitroom/frontend/components/launches/general.preview.component';
-import { IntegrationContext } from '@gitroom/frontend/components/launches/helpers/use.integration';
-import { useT } from '@gitroom/react/translation/get.transation.service.client';
-import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
+import { GeneralPreviewComponent } from '@collosy/frontend/components/launches/general.preview.component';
+import { IntegrationContext } from '@collosy/frontend/components/launches/helpers/use.integration';
+import { useT } from '@collosy/react/translation/get.transation.service.client';
+import { useFetch } from '@collosy/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { InternalChannels } from '@gitroom/frontend/components/launches/internal.channels';
+import { InternalChannels } from '@collosy/frontend/components/launches/internal.channels';
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
-import SafeImage from '@gitroom/react/helpers/safe.image';
+import SafeImage from '@collosy/react/helpers/safe.image';
 
 class Empty {
   @IsOptional()
   empty: string;
 }
 
-export { PostComment } from '@gitroom/frontend/components/new-launch/providers/post-comment.enum';
-import { PostComment } from '@gitroom/frontend/components/new-launch/providers/post-comment.enum';
+export { PostComment } from '@collosy/frontend/components/new-launch/providers/post-comment.enum';
+import { PostComment } from '@collosy/frontend/components/new-launch/providers/post-comment.enum';
 
 interface CharacterCondition {
   format: 'no-pictures' | 'with-pictures';
