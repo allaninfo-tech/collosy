@@ -43,7 +43,10 @@ export const customFetch = (
             .find((p) => p.includes('impersonate='))
             ?.split('=')[1];
 
-    const fetchRequest = await fetch(params.baseUrl + url, {
+    const rawBaseUrl = params?.baseUrl || (typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_BACKEND_URL : '') || 'https://collosy.onrender.com';
+    const cleanBaseUrl = rawBaseUrl.replace(/\/+$/, '');
+    const targetUrl = url.startsWith('/') ? url : `/${url}`;
+    const fetchRequest = await fetch(`${cleanBaseUrl}${targetUrl}`, {
       ...(secured ? { credentials: 'include' } : {}),
       ...(newRequestObject || options),
       headers: {
