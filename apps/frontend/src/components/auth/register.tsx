@@ -138,40 +138,45 @@ export function RegisterAfter({
   return (
     <FormProvider {...form}>
       <form className="flex-1 flex" onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 w-full">
           <div>
-            <h1 className="text-[40px] font-[500] -tracking-[0.8px] text-start cursor-pointer">
+            <h1 className="text-3xl font-semibold tracking-tight text-white mb-2">
               {t('sign_up', 'Sign Up')}
             </h1>
+            <p className="text-sm text-slate-400 mb-8">
+              Create an account to start scaling your brand
+            </p>
           </div>
-          <div className="text-[14px] mt-[32px] mb-[12px]">
-            {t('continue_with', 'Continue With')}
-          </div>
+          
           <div className="flex flex-col">
             {!isAfterProvider &&
               (!isGeneral ? (
-                <GithubProvider />
+                <div className="mb-6"><GithubProvider /></div>
               ) : (
-                <div className="gap-[8px] flex">
+                <div className="grid grid-cols-2 gap-4 mb-6">
                   {genericOauth && isGeneral ? (
-                    <OauthProvider />
+                    <div className="col-span-2"><OauthProvider /></div>
                   ) : (
-                    <GoogleProvider />
+                    <div className="col-span-2"><GoogleProvider /></div>
                   )}
                 </div>
               ))}
+              
             {!isAfterProvider && (
-              <div className="h-[20px] mb-[24px] mt-[24px] relative">
-                <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
-                <div
-                  className={`absolute z-[1] justify-center items-center w-full start-0 -top-[4px] flex`}
-                >
-                  <div className="px-[16px]">{t('or', 'or')}</div>
+              <div className="relative mb-6">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t border-[#27272a]" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-[#09090b] px-2 text-slate-500">
+                    {t('or', 'or continue with email')}
+                  </span>
                 </div>
               </div>
             )}
-            <div className="flex flex-col gap-[12px]">
-              <div className="text-textColor">
+            
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 text-slate-200">
                 {!isAfterProvider && (
                   <>
                     <Input
@@ -179,7 +184,8 @@ export function RegisterAfter({
                       translationKey="label_email"
                       {...form.register('email')}
                       type="email"
-                      placeholder={t('email_address', 'Email Address')}
+                      placeholder={t('email_address', 'm@example.com')}
+                      className="bg-[#09090b] border-[#27272a] focus-visible:ring-[#ADFA1D] rounded-md h-10"
                     />
                     <Input
                       label="Password"
@@ -188,6 +194,7 @@ export function RegisterAfter({
                       autoComplete="off"
                       type="password"
                       placeholder={t('label_password', 'Password')}
+                      className="bg-[#09090b] border-[#27272a] focus-visible:ring-[#ADFA1D] rounded-md h-10"
                     />
                   </>
                 )}
@@ -197,10 +204,12 @@ export function RegisterAfter({
                   {...form.register('company')}
                   autoComplete="off"
                   type="text"
-                  placeholder={t('label_company', 'Company')}
+                  placeholder={t('label_company', 'Company Name')}
+                  className="bg-[#09090b] border-[#27272a] focus-visible:ring-[#ADFA1D] rounded-md h-10"
                 />
               </div>
-              <div className={clsx('text-[12px]')}>
+              
+              <div className={clsx('text-[12px] text-slate-400')}>
                 {t(
                   'by_registering_you_agree_to_our',
                   'By registering you agree to our'
@@ -208,7 +217,7 @@ export function RegisterAfter({
                 &nbsp;
                 <a
                   href={`https://collosy.com/terms`}
-                  className="underline hover:font-bold"
+                  className="text-white hover:text-[#ADFA1D] underline underline-offset-4 transition-colors"
                   rel="nofollow"
                 >
                   {t('terms_of_service', 'Terms of Service')}
@@ -218,32 +227,34 @@ export function RegisterAfter({
                 <a
                   href={`https://collosy.com/privacy`}
                   rel="nofollow"
-                  className="underline hover:font-bold"
+                  className="text-white hover:text-[#ADFA1D] underline underline-offset-4 transition-colors"
                 >
                   {t('privacy_policy', 'Privacy Policy')}
                 </a>
                 &nbsp;
               </div>
-              <div className="text-center mt-6">
-                <div className="w-full flex">
-                  <Button
-                    type="submit"
-                    className="flex-1 rounded-[10px] !h-[52px]"
-                    loading={loading}
-                  >
-                    {t('create_account', 'Create Account')}
-                  </Button>
+              
+              <div className="mt-4">
+                <Button
+                  type="submit"
+                  className="w-full h-10 rounded-md !bg-[#ADFA1D] hover:!bg-[#84CC16] !text-black font-semibold transition-colors"
+                  loading={loading}
+                >
+                  {t('create_account', 'Create Account')}
+                </Button>
+                
+                <div className="mt-6 text-center text-sm text-slate-400">
+                  <p>
+                    {t('already_have_an_account', 'Already have an account?')}
+                    &nbsp;
+                    <Link
+                      href="/auth/login"
+                      className="text-white hover:text-[#ADFA1D] underline underline-offset-4 transition-colors"
+                    >
+                      {t('sign_in', 'Sign In')}
+                    </Link>
+                  </p>
                 </div>
-                <p className="mt-4 text-sm">
-                  {t('already_have_an_account', 'Already Have An Account?')}
-                  &nbsp;
-                  <Link
-                    href="/auth/login"
-                    className="underline  cursor-pointer"
-                  >
-                    {t('sign_in', 'Sign In')}
-                  </Link>
-                </p>
               </div>
             </div>
           </div>

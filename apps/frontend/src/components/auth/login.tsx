@@ -45,7 +45,9 @@ export function Login() {
         provider: 'LOCAL',
       }),
     });
-    if (login.status === 400) {
+    if (login.status === 200 || login.status === 201) {
+      window.location.href = '/';
+    } else if (login.status === 400 || login.status === 401 || login.status === 403 || login.status === 404) {
       const errorMessage = await login.text();
       if (errorMessage === 'User is not activated') {
         setNotActivated(true);
@@ -55,46 +57,56 @@ export function Login() {
         });
       }
       setLoading(false);
+    } else {
+      setLoading(false);
     }
   };
   return (
     <FormProvider {...form}>
       <form className="flex-1 flex" onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 w-full">
           <div>
-            <h1 className="text-[40px] font-[500] -tracking-[0.8px] text-start cursor-pointer">
+            <h1 className="text-3xl font-semibold tracking-tight text-white mb-2">
               {t('sign_in', 'Sign In')}
             </h1>
+            <p className="text-sm text-slate-400 mb-8">
+              Enter your email below to log into your account
+            </p>
           </div>
-          <div className="text-[14px] mt-[32px] mb-[12px]">
-            {t('continue_with', 'Continue With')}
-          </div>
+          
           <div className="flex flex-col">
-            {isGeneral && genericOauth ? (
-              <OauthProvider />
-            ) : !isGeneral ? (
-              <GithubProvider />
-            ) : (
-              <div className="gap-[8px] flex">
-                <GoogleProvider />
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              {isGeneral && genericOauth ? (
+                <div className="col-span-2"><OauthProvider /></div>
+              ) : !isGeneral ? (
+                <div className="col-span-2"><GithubProvider /></div>
+              ) : (
+                <div className="col-span-2">
+                  <GoogleProvider />
+                </div>
+              )}
+            </div>
+            
+            <div className="relative mb-6">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t border-[#27272a]" />
               </div>
-            )}
-            <div className="h-[20px] mb-[24px] mt-[24px] relative">
-              <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
-              <div
-                className={`absolute z-[1] justify-center items-center w-full start-0 -top-[4px] flex`}
-              >
-                <div className="px-[16px]">{t('or', 'or')}</div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-[#09090b] px-2 text-slate-500">
+                  {t('or_continue_with', 'Or continue with email')}
+                </span>
               </div>
             </div>
-            <div className="flex flex-col gap-[12px]">
-              <div className="text-textColor">
+
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 text-slate-200">
                 <Input
                   label="Email"
                   translationKey="label_email"
                   {...form.register('email')}
                   type="email"
-                  placeholder={t('email_address', 'Email Address')}
+                  placeholder={t('email_address', 'm@example.com')}
+                  className="bg-[#09090b] border-[#27272a] focus-visible:ring-[#ADFA1D] rounded-md h-10"
                 />
                 <Input
                   label="Password"
@@ -103,11 +115,13 @@ export function Login() {
                   autoComplete="off"
                   type="password"
                   placeholder={t('label_password', 'Password')}
+                  className="bg-[#09090b] border-[#27272a] focus-visible:ring-[#ADFA1D] rounded-md h-10"
                 />
               </div>
+              
               {notActivated && (
-                <div className="bg-amber-500/10 border border-amber-500/30 rounded-[10px] p-4 mb-4">
-                  <p className="text-amber-400 text-sm mb-2">
+                <div className="bg-[#ADFA1D]/10 border border-[#ADFA1D]/30 rounded-md p-4 mt-2">
+                  <p className="text-[#ADFA1D] text-sm mb-2">
                     {t(
                       'account_not_activated',
                       'Your account is not activated yet. Please check your email for the activation link.'
@@ -115,36 +129,38 @@ export function Login() {
                   </p>
                   <Link
                     href="/auth/activate"
-                    className="text-amber-400 underline hover:font-bold text-sm"
+                    className="text-[#ADFA1D] underline hover:font-bold text-sm"
                   >
                     {t('resend_activation_email', 'Resend Activation Email')}
                   </Link>
                 </div>
               )}
-              <div className="text-center mt-6">
-                <div className="w-full flex">
-                  <Button
-                    type="submit"
-                    className="flex-1 rounded-[10px] !h-[52px]"
-                    loading={loading}
-                  >
-                    {t('sign_in_1', 'Sign in')}
-                  </Button>
+              
+              <div className="mt-4">
+                <Button
+                  type="submit"
+                  className="w-full h-10 rounded-md !bg-[#ADFA1D] hover:!bg-[#84CC16] !text-black font-semibold transition-colors"
+                  loading={loading}
+                >
+                  {t('sign_in_1', 'Sign in')}
+                </Button>
+                
+                <div className="mt-6 flex flex-col gap-2 text-center text-sm text-slate-400">
+                  <p>
+                    {t('don_t_have_an_account', "Don't have an account?")}{' '}
+                    <Link href="/auth" className="text-white hover:text-[#ADFA1D] underline underline-offset-4 transition-colors">
+                      {t('sign_up', 'Sign up')}
+                    </Link>
+                  </p>
+                  <p>
+                    <Link
+                      href="/auth/forgot"
+                      className="text-slate-400 hover:text-white underline underline-offset-4 transition-colors"
+                    >
+                      {t('forgot_password', 'Forgot your password?')}
+                    </Link>
+                  </p>
                 </div>
-                <p className="mt-4 text-sm">
-                  {t('don_t_have_an_account', "Don't Have An Account?")}&nbsp;
-                  <Link href="/auth" className="underline cursor-pointer">
-                    {t('sign_up', 'Sign Up')}
-                  </Link>
-                </p>
-                <p className="mt-4 text-sm">
-                  <Link
-                    href="/auth/forgot"
-                    className="underline hover:font-bold cursor-pointer"
-                  >
-                    {t('forgot_password', 'Forgot password')}
-                  </Link>
-                </p>
               </div>
             </div>
           </div>
