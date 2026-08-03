@@ -74,6 +74,19 @@ async function start() {
     await app.listen(port);
     console.log('Backend started successfully on port ' + port);
 
+    // Asynchronously push Prisma schema to create missing tables (User, Org, etc.) in background
+    const { exec } = await import('child_process');
+    exec(
+      'npx prisma db push --accept-data-loss --schema ./libraries/nestjs-libraries/src/database/prisma/schema.prisma',
+      (err, stdout, stderr) => {
+        if (err) {
+          Logger.warn('Prisma DB push result: ' + (err.message || stderr));
+        } else {
+          Logger.log('✅ Prisma DB schema synced successfully to PostgreSQL database!');
+        }
+      }
+    );
+
     checkConfiguration(); // Do this last, so that users will see obvious issues at the end of the startup log without having to scroll up.
 
     Logger.log(`🚀 Backend is running on: http://localhost:${port}`);
