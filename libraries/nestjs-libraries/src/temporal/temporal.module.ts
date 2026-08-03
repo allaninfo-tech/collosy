@@ -1,4 +1,4 @@
-import { TemporalModule } from 'nestjs-temporal-core';
+import { TemporalModule, TemporalService } from 'nestjs-temporal-core';
 import { socialIntegrationList } from '@collosy/nestjs-libraries/integrations/integration.manager';
 
 export const getTemporalModule = (
@@ -22,6 +22,33 @@ export const getTemporalModule = (
     1,
     Number(process.env.WORKER_CONCURRENCY_DIVIDER) || 1
   );
+
+  if (process.env.DISABLE_TEMPORAL === 'true') {
+    return {
+      module: class MockTemporalModule {},
+      providers: [
+        {
+          provide: TemporalService,
+          useValue: {
+            client: {
+              workflow: {
+                start: async () => console.log('[Mock Temporal] Workflow started (ignored)'),
+                signalWithStart: async () => console.log('[Mock Temporal] Workflow signalWithStart (ignored)'),
+                list: async function* () { },
+              },
+              getWorkflowHandle: async () => ({
+                describe: async () => ({ status: { name: 'TERMINATED' } }),
+                terminate: async () => console.log('[Mock Temporal] Workflow terminated (ignored)'),
+              }),
+            },
+            terminateWorkflow: async () => console.log('[Mock Temporal] terminateWorkflow (ignored)'),
+          },
+        },
+      ],
+      exports: [TemporalService],
+      global: true,
+    };
+  }
 
   return TemporalModule.register({
     isGlobal: true,
