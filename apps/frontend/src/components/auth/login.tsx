@@ -47,8 +47,16 @@ export function Login() {
     });
     if (login.status === 200 || login.status === 201) {
       window.location.href = '/';
-    } else if (login.status === 400 || login.status === 401 || login.status === 403 || login.status === 404) {
-      const errorMessage = await login.text();
+    } else {
+      let errorMessage = '';
+      try {
+        errorMessage = await login.text();
+      } catch (e) {
+        errorMessage = 'An unexpected connection error occurred.';
+      }
+      if (!errorMessage || errorMessage.includes('<!DOCTYPE') || errorMessage.includes('<html') || login.status === 404) {
+        errorMessage = 'Backend API is unreachable. Please verify NEXT_PUBLIC_BACKEND_URL is set in your Vercel Environment Variables.';
+      }
       if (errorMessage === 'User is not activated') {
         setNotActivated(true);
       } else {
@@ -56,8 +64,6 @@ export function Login() {
           message: errorMessage,
         });
       }
-      setLoading(false);
-    } else {
       setLoading(false);
     }
   };
