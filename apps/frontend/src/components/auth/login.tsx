@@ -46,7 +46,7 @@ export function Login() {
       }),
     });
     if (login.status === 200 || login.status === 201) {
-      window.location.href = '/';
+      window.location.href = '/launches';
     } else {
       let errorMessage = '';
       try {
