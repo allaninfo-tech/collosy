@@ -189,7 +189,6 @@ export const useMenuItem = () => {
       ),
       path: '#',
       role: ['ADMIN', 'SUPERADMIN', 'USER'],
-      requireBilling: true,
       onClick: handleAgentMediaClick,
     },
     {
