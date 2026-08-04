@@ -117,7 +117,7 @@ export class AuthController {
     @Req() req: Request,
     @Body() body: LoginUserDto,
     @Res({ passthrough: false }) response: Response,
-    @Ip() ip: string,
+    @RealIP() ip: string,
     @UserAgent() userAgent: string
   ) {
     try {
