@@ -41,6 +41,11 @@ export const getTemporalModule = (
                 terminate: async () => console.log('[Mock Temporal] Workflow terminated (ignored)'),
               }),
               getRawClient: () => ({
+                workflow: {
+                  start: async () => console.log('[Mock Temporal] getRawClient workflow start (ignored)'),
+                  signalWithStart: async () => console.log('[Mock Temporal] getRawClient workflow signalWithStart (ignored)'),
+                  list: async function* () { },
+                },
                 connection: {
                   operatorService: {
                     listSearchAttributes: async () => ({ customAttributes: {} }),
