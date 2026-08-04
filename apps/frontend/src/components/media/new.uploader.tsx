@@ -168,10 +168,12 @@ export function useUppyUploader(props: {
     });
 
     const { plugin, options } = getUppyUploadPlugin(
-      transloadit.length > 0 ? 'transloadit' : storageProvider,
+      transloadit && transloadit.length > 0
+        ? 'transloadit'
+        : storageProvider || 'local',
       fetch,
-      backendUrl,
-      transloadit
+      backendUrl || 'https://collosy.onrender.com',
+      transloadit || []
     );
 
     uppy2.use(plugin, options);

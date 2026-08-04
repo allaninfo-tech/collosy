@@ -56,7 +56,9 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
       >
         <VariableContextComponent
           storageProvider={
-            process.env.STORAGE_PROVIDER! as 'local' | 'cloudflare'
+            (process.env.STORAGE_PROVIDER ||
+              process.env.NEXT_PUBLIC_STORAGE_PROVIDER ||
+              'local') as 'local' | 'cloudflare'
           }
           environment={process.env.NODE_ENV!}
           backendUrl={process.env.NEXT_PUBLIC_BACKEND_URL || 'https://collosy.onrender.com'}

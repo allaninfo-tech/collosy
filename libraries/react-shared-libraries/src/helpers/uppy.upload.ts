@@ -20,12 +20,13 @@ const fetchUploadApiEndpoint = async (
 
 // Define the factory to return appropriate Uppy configuration
 export const getUppyUploadPlugin = (
-  provider: string,
-  fetch: any,
-  backendUrl: string,
+  provider?: string,
+  fetch?: any,
+  backendUrl?: string,
   transloadit: string[] = []
 ) => {
-  switch (provider) {
+  const selectedProvider = provider || 'local';
+  switch (selectedProvider) {
     case 'transloadit':
       return {
         plugin: Transloadit,
@@ -93,16 +94,27 @@ export const getUppyUploadPlugin = (
         },
       };
     case 'local':
+    default:
+      let authHeaderVal: string | undefined = undefined;
+      if (typeof window !== 'undefined') {
+        try {
+          authHeaderVal = localStorage.getItem('auth') || undefined;
+        } catch (e) {}
+        if (!authHeaderVal && typeof document !== 'undefined') {
+          authHeaderVal = document.cookie
+            .split(';')
+            .map((c) => c.trim())
+            .find((p) => p.startsWith('auth='))
+            ?.split('=')[1];
+        }
+      }
       return {
         plugin: XHRUpload,
         options: {
-          endpoint: `${backendUrl}/media/upload-server`,
+          endpoint: `${backendUrl || 'https://collosy.onrender.com'}/media/upload-server`,
           withCredentials: true,
+          headers: authHeaderVal ? { auth: authHeaderVal } : {},
         },
       };
-
-    // Add more cases for other cloud providers
-    default:
-      throw new Error(`Unsupported storage provider: ${provider}`);
   }
 };

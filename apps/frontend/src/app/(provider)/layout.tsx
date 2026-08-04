@@ -29,11 +29,13 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
         <VariableContextComponent
           language="en"
           storageProvider={
-            process.env.STORAGE_PROVIDER! as 'local' | 'cloudflare'
+            (process.env.STORAGE_PROVIDER ||
+              process.env.NEXT_PUBLIC_STORAGE_PROVIDER ||
+              'local') as 'local' | 'cloudflare'
           }
           stripeClient=""
           environment={process.env.NODE_ENV!}
-          backendUrl={process.env.NEXT_PUBLIC_BACKEND_URL!}
+          backendUrl={process.env.NEXT_PUBLIC_BACKEND_URL || 'https://collosy.onrender.com'}
           plontoKey={process.env.NEXT_PUBLIC_POLOTNO!}
           billingEnabled={!!process.env.STRIPE_PUBLISHABLE_KEY}
           discordUrl={process.env.NEXT_PUBLIC_DISCORD_SUPPORT!}
