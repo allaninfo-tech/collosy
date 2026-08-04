@@ -19,20 +19,31 @@ export const customFetch = (
         ? undefined
         : new URL(window.location.href).searchParams.get('loggedAuth');
     const newRequestObject = await params?.beforeRequest?.(url, options);
-    const authNonSecuredCookie =
+    let authStorageToken: string | null = null;
+    let orgStorageVal: string | null = null;
+    if (typeof window !== 'undefined') {
+      try {
+        authStorageToken = localStorage.getItem('auth');
+        orgStorageVal = localStorage.getItem('showorg');
+      } catch (e) {}
+    }
+
+    const authCookieToken =
       typeof document === 'undefined'
         ? null
         : document.cookie
             .split(';')
-            .find((p) => p.includes('auth='))
+            .map((c) => c.trim())
+            .find((p) => p.startsWith('auth='))
             ?.split('=')[1];
 
-    const authNonSecuredOrg =
+    const orgCookieVal =
       typeof document === 'undefined'
         ? null
         : document.cookie
             .split(';')
-            .find((p) => p.includes('showorg='))
+            .map((c) => c.trim())
+            .find((p) => p.startsWith('showorg='))
             ?.split('=')[1];
 
     const authNonSecuredImpersonate =
@@ -40,8 +51,12 @@ export const customFetch = (
         ? null
         : document.cookie
             .split(';')
-            .find((p) => p.includes('impersonate='))
+            .map((c) => c.trim())
+            .find((p) => p.startsWith('impersonate='))
             ?.split('=')[1];
+
+    const resolvedAuth = auth || loggedAuth || authCookieToken || authStorageToken;
+    const resolvedOrg = showorg || orgCookieVal || orgStorageVal;
 
     const rawBaseUrl = params?.baseUrl || (typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_BACKEND_URL : '') || 'https://collosy.onrender.com';
     const cleanBaseUrl = rawBaseUrl.replace(/\/+$/, '');
@@ -50,22 +65,13 @@ export const customFetch = (
       ...(secured ? { credentials: 'include' } : {}),
       ...(newRequestObject || options),
       headers: {
-        ...(showorg
-          ? { showorg }
-          : authNonSecuredOrg
-          ? { showorg: authNonSecuredOrg }
-          : {}),
+        ...(resolvedOrg ? { showorg: resolvedOrg } : {}),
         ...(options.body instanceof FormData
           ? {}
           : { 'Content-Type': 'application/json' }),
         Accept: 'application/json',
-        ...(loggedAuth ? { auth: loggedAuth } : {}),
+        ...(resolvedAuth ? { auth: resolvedAuth } : {}),
         ...options?.headers,
-        ...(auth
-          ? { auth }
-          : authNonSecuredCookie
-          ? { auth: authNonSecuredCookie }
-          : {}),
         ...(authNonSecuredImpersonate
           ? { impersonate: authNonSecuredImpersonate }
           : {}),

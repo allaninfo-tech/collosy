@@ -69,44 +69,43 @@ export class AuthController {
         return;
       }
 
+      const cookieDomain = getCookieUrlFromDomain(process.env.FRONTEND_URL);
       response.cookie('auth', jwt, {
-        domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
+        ...(cookieDomain ? { domain: cookieDomain } : {}),
         ...(!process.env.NOT_SECURED
           ? {
               secure: true,
-              httpOnly: true,
+              httpOnly: false,
               sameSite: 'none',
             }
           : {}),
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
       });
 
-      if (process.env.NOT_SECURED) {
-        response.header('auth', jwt);
-      }
+      response.header('auth', jwt);
 
       if (typeof addedOrg !== 'boolean' && addedOrg?.organizationId) {
         response.cookie('showorg', addedOrg.organizationId, {
-          domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
+          ...(cookieDomain ? { domain: cookieDomain } : {}),
           ...(!process.env.NOT_SECURED
             ? {
                 secure: true,
-                httpOnly: true,
+                httpOnly: false,
                 sameSite: 'none',
               }
             : {}),
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
         });
 
-        if (process.env.NOT_SECURED) {
-          response.header('showorg', addedOrg.organizationId);
-        }
+        response.header('showorg', addedOrg.organizationId);
       }
 
       Sentry.metrics.count('new_user', 1);
       response.header('onboarding', 'true');
       response.status(200).json({
         register: true,
+        token: jwt,
+        organizationId: typeof addedOrg !== 'boolean' ? addedOrg?.organizationId : undefined,
       });
     } catch (e: any) {
       response.status(400).send(e.message);
@@ -118,7 +117,7 @@ export class AuthController {
     @Req() req: Request,
     @Body() body: LoginUserDto,
     @Res({ passthrough: false }) response: Response,
-    @RealIP() ip: string,
+    @Ip() ip: string,
     @UserAgent() userAgent: string
   ) {
     try {
@@ -134,43 +133,42 @@ export class AuthController {
         getOrgFromCookie
       );
 
+      const cookieDomain = getCookieUrlFromDomain(process.env.FRONTEND_URL);
       response.cookie('auth', jwt, {
-        domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
+        ...(cookieDomain ? { domain: cookieDomain } : {}),
         ...(!process.env.NOT_SECURED
           ? {
               secure: true,
-              httpOnly: true,
+              httpOnly: false,
               sameSite: 'none',
             }
           : {}),
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
       });
 
-      if (process.env.NOT_SECURED) {
-        response.header('auth', jwt);
-      }
+      response.header('auth', jwt);
 
       if (typeof addedOrg !== 'boolean' && addedOrg?.organizationId) {
         response.cookie('showorg', addedOrg.organizationId, {
-          domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
+          ...(cookieDomain ? { domain: cookieDomain } : {}),
           ...(!process.env.NOT_SECURED
             ? {
                 secure: true,
-                httpOnly: true,
+                httpOnly: false,
                 sameSite: 'none',
               }
             : {}),
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
         });
 
-        if (process.env.NOT_SECURED) {
-          response.header('showorg', addedOrg.organizationId);
-        }
+        response.header('showorg', addedOrg.organizationId);
       }
 
       response.header('reload', 'true');
       response.status(200).json({
         login: true,
+        token: jwt,
+        organizationId: typeof addedOrg !== 'boolean' ? addedOrg?.organizationId : undefined,
       });
     } catch (e: any) {
       response.status(400).send(e.message);

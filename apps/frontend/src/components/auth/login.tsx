@@ -46,6 +46,22 @@ export function Login() {
       }),
     });
     if (login.status === 200 || login.status === 201) {
+      try {
+        const json = await login.clone().json();
+        const token = json?.token || login.headers.get('auth');
+        if (token) {
+          document.cookie = `auth=${token}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+          try {
+            localStorage.setItem('auth', token);
+          } catch (e) {}
+        }
+        if (json?.organizationId) {
+          document.cookie = `showorg=${json.organizationId}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+          try {
+            localStorage.setItem('showorg', json.organizationId);
+          } catch (e) {}
+        }
+      } catch (e) {}
       window.location.href = '/launches';
     } else {
       let errorMessage = '';

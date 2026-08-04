@@ -112,12 +112,28 @@ export function RegisterAfter({
       .then(async (response) => {
         setLoading(false);
         if (response.status === 200) {
+          try {
+            const json = await response.clone().json();
+            const token = json?.token || response.headers.get('auth');
+            if (token) {
+              document.cookie = `auth=${token}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+              try {
+                localStorage.setItem('auth', token);
+              } catch (e) {}
+            }
+            if (json?.organizationId) {
+              document.cookie = `showorg=${json.organizationId}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+              try {
+                localStorage.setItem('showorg', json.organizationId);
+              } catch (e) {}
+            }
+          } catch (e) {}
           fireEvents('register');
           return track(TrackEnum.CompleteRegistration).then(() => {
             if (response.headers.get('activate') === 'true') {
               router.push('/auth/activate');
             } else {
-              router.push('/auth/login');
+              window.location.href = '/launches';
             }
           });
         } else {
