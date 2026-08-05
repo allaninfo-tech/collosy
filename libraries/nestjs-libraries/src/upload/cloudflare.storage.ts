@@ -112,7 +112,8 @@ class CloudflareStorage implements IUploadProvider {
     const command = new PutObjectCommand({ ...params });
     await this._client.send(command);
 
-    return `${this._uploadUrl}/${id}.${extension}`;
+    const cleanUploadUrl = this._uploadUrl.endsWith('/') ? this._uploadUrl.slice(0, -1) : this._uploadUrl;
+    return `${cleanUploadUrl}/${id}.${extension}`;
   }
 
   async uploadFile(file: Express.Multer.File): Promise<any> {
@@ -136,6 +137,8 @@ class CloudflareStorage implements IUploadProvider {
 
       await this._client.send(command);
 
+      const cleanUploadUrl = this._uploadUrl.endsWith('/') ? this._uploadUrl.slice(0, -1) : this._uploadUrl;
+
       return {
         filename: `${id}.${extension}`,
         mimetype: file.mimetype,
@@ -143,8 +146,8 @@ class CloudflareStorage implements IUploadProvider {
         buffer: file.buffer,
         originalname: `${id}.${extension}`,
         fieldname: 'file',
-        path: `${this._uploadUrl}/${id}.${extension}`,
-        destination: `${this._uploadUrl}/${id}.${extension}`,
+        path: `${cleanUploadUrl}/${id}.${extension}`,
+        destination: `${cleanUploadUrl}/${id}.${extension}`,
         encoding: '7bit',
         stream: file.buffer as any,
       };
